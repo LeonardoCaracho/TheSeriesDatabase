@@ -1,14 +1,3 @@
-import 'package:tv_maze_api/tv_maze_api.dart';
-
-final episode = EpisodesModel(
-  id: 1,
-  image: ImageModel(medium: 'https://image.url'),
-  name: 'Felina',
-  number: 16,
-  season: 5,
-  summary: 'summary mock',
-);
-
 const episodeListJson = '''
 [
   {

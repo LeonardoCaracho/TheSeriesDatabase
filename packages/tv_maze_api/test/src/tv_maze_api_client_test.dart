@@ -74,7 +74,7 @@ void main() {
 
         expect(
           actual,
-          isA<List<EpisodesModel>>(),
+          isA<List<EpisodesResponseModel>>(),
         );
       });
     });
@@ -122,7 +122,7 @@ void main() {
 
         expect(
           actual,
-          isA<EpisodesModel>(),
+          isA<EpisodesResponseModel>(),
         );
       });
     });
@@ -171,7 +171,7 @@ void main() {
 
         expect(
           actual,
-          isA<List<TvShowModel>>(),
+          isA<List<TvShowResponseModel>>(),
         );
       });
     });
@@ -220,7 +220,7 @@ void main() {
 
         expect(
           actual,
-          isA<List<TvShowModel>>(),
+          isA<List<TvShowResponseModel>>(),
         );
       });
     });
@@ -268,7 +268,7 @@ void main() {
 
         expect(
           actual,
-          isA<TvShowModel>(),
+          isA<TvShowResponseModel>(),
         );
       });
     });
