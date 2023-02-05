@@ -1,3 +1,4 @@
+import 'package:collection/collection.dart';
 import 'package:tsdb_repository/tsdb_repository.dart';
 import 'package:tv_maze_api/tv_maze_api.dart';
 
@@ -18,43 +19,20 @@ class TsdbRepositoryImpl implements TsdbRepository {
     try {
       final episodesResponse = await apiClient.getAllEpisodesByShowId(tvShowId);
 
-      var seasonCounter = 1;
       final seasonsList = <SeasonModel>[];
-      final episodesList = <EpisodeDetailsModel>[];
 
-      for (final episode in episodesResponse) {
-        if (episode.season == seasonCounter) {
-          episodesList.add(
-            EpisodeDetailsModel(
-              id: episode.id,
-              name: episode.name,
-              season: episode.season,
-              number: episode.number,
-              summary: episode.summary,
-            ),
-          );
-        } else {
-          seasonsList.add(
-            SeasonModel(
-              season: seasonCounter,
-              episodes: episodesList,
-            ),
-          );
+      final episodesGroupedBySeason = groupBy(
+        episodesResponse,
+        (obj) => obj.season,
+      );
 
-          episodesList.clear();
-
-          episodesList.add(
-            EpisodeDetailsModel(
-              id: episode.id,
-              name: episode.name,
-              season: episode.season,
-              number: episode.number,
-              summary: episode.summary,
-            ),
-          );
-
-          seasonCounter++;
-        }
+      for (final season in episodesGroupedBySeason.values) {
+        seasonsList.add(
+          SeasonModel(
+            season: season.first.season,
+            episodes: season.map(mapToEpisodeDetailsModel).toList(),
+          ),
+        );
       }
 
       return seasonsList;

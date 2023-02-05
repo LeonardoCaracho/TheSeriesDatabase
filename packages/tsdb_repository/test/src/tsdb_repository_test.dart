@@ -93,36 +93,61 @@ void main() {
     });
 
     group('getTvShowSeasonsAndEpisodes', () {
-      const page = 1;
-      test('should return tv shows on success', () async {
+      const showId = 1;
+      test('should return episodes by season on success', () async {
         final expected = [
-          TvShowModel(
-            id: 1,
-            name: 'Breaking bad',
-            genres: const ['action'],
-            imageUrl: 'https://image.url',
-            summary: 'summary',
-            exhibitionDays: const ['Monday'],
-            exhibitionHour: '10:00 PM',
-          )
+          SeasonModel(
+            season: 4,
+            episodes: [
+              EpisodeDetailsModel(
+                id: 34,
+                name: 'Face Off',
+                number: 13,
+                season: 4,
+                summary: 'summary mock',
+                imageUrl: 'https://image.url',
+              ),
+            ],
+          ),
+          SeasonModel(
+            season: 5,
+            episodes: [
+              EpisodeDetailsModel(
+                id: 56,
+                name: 'Granite State',
+                number: 15,
+                season: 5,
+                summary: 'summary mock',
+                imageUrl: 'https://image.url',
+              ),
+              EpisodeDetailsModel(
+                id: 57,
+                name: 'Felina',
+                number: 16,
+                season: 5,
+                summary: 'summary mock',
+                imageUrl: 'https://image.url',
+              ),
+            ],
+          ),
         ];
         when(
-          () => apiClient.getTvShowsWithPagination(page),
-        ).thenAnswer((_) async => tvShowsResponse);
+          () => apiClient.getAllEpisodesByShowId(showId),
+        ).thenAnswer((_) async => episodesResponse);
 
-        final actual = await tsdbRepository.getTvShows(page);
+        final actual = await tsdbRepository.getTvShowSeasonsAndEpisodes(showId);
 
         expect(actual, expected);
       });
 
       test('throws when getTvShowsBySearch fails', () async {
         when(
-          () => apiClient.getTvShowsWithPagination(page),
+          () => apiClient.getAllEpisodesByShowId(showId),
         ).thenThrow(Exception());
 
         expect(
-          () async => tsdbRepository.getTvShows(page),
-          throwsA(isA<GetTvshowsFailure>()),
+          () async => tsdbRepository.getTvShowSeasonsAndEpisodes(showId),
+          throwsA(isA<GetTvshowSeasonsFailure>()),
         );
       });
     });
