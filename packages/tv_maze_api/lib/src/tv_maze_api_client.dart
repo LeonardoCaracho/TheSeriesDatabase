@@ -14,8 +14,8 @@ class TvMazeApiClient {
 
   final http.Client _httpClient;
 
-  /// Finds all [List<EpisodesModel>] `/shows/(query)/episodes`.
-  Future<List<EpisodesModel>> getAllEpisodesByShowId(int showId) async {
+  /// Finds all [List<EpisodesResponseModel>] `/shows/(query)/episodes`.
+  Future<List<EpisodesResponseModel>> getAllEpisodesByShowId(int showId) async {
     final episodesRequest = Uri.https(
       TvMazeApiEndpoints.baseUrl,
       TvMazeApiEndpoints.episodesByShowIdPath(showId),
@@ -33,13 +33,13 @@ class TvMazeApiClient {
 
     return episodesJson
         .map(
-          (e) => EpisodesModel.fromJson(e as Map<String, dynamic>),
+          (e) => EpisodesResponseModel.fromJson(e as Map<String, dynamic>),
         )
         .toList();
   }
 
-  /// Find a [EpisodesModel] `/episodes/(query)`.
-  Future<EpisodesModel> getEpisodeDetailsById(int episodeId) async {
+  /// Find a [EpisodesResponseModel] `/episodes/(query)`.
+  Future<EpisodesResponseModel> getEpisodeDetailsById(int episodeId) async {
     final episodeDetailsRequest = Uri.https(
       TvMazeApiEndpoints.baseUrl,
       TvMazeApiEndpoints.episodeDetailsByIdPath(episodeId),
@@ -55,11 +55,11 @@ class TvMazeApiClient {
       episodeDetailsResponse.body,
     ) as Map<String, dynamic>;
 
-    return EpisodesModel.fromJson(episodeDetailsJson);
+    return EpisodesResponseModel.fromJson(episodeDetailsJson);
   }
 
-  /// Finds all [List<TvShowModel>] `/shows/(query)`.
-  Future<List<TvShowModel>> getTvShowsWithPagination(int page) async {
+  /// Finds all [List<TvShowResponseModel>] `/shows/(query)`.
+  Future<List<TvShowResponseModel>> getTvShowsWithPagination(int page) async {
     final tvShowsRequest = Uri.https(
       TvMazeApiEndpoints.baseUrl,
       TvMazeApiEndpoints.getTvShowsPath,
@@ -80,13 +80,13 @@ class TvMazeApiClient {
 
     return tvShowsJson
         .map(
-          (s) => TvShowModel.fromJson(s as Map<String, dynamic>),
+          (s) => TvShowResponseModel.fromJson(s as Map<String, dynamic>),
         )
         .toList();
   }
 
-  /// Finds all [List<TvShowModel>] `/search/shows/(query)`.
-  Future<List<TvShowModel>> getTvShowsBySearch(String search) async {
+  /// Finds all [List<TvShowResponseModel>] `/search/shows/(query)`.
+  Future<List<TvShowResponseModel>> getTvShowsBySearch(String search) async {
     final tvShowsRequest = Uri.https(
       TvMazeApiEndpoints.baseUrl,
       TvMazeApiEndpoints.getTvShowsBySearchPath,
@@ -105,13 +105,13 @@ class TvMazeApiClient {
 
     return tvShowsJson
         .map(
-          (s) => TvShowModel.fromJson(s as Map<String, dynamic>),
+          (s) => TvShowResponseModel.fromJson(s as Map<String, dynamic>),
         )
         .toList();
   }
 
-  /// Finds a [TvShowModel] `/shows/(query)`.
-  Future<TvShowModel> getTvShowsDetailsById(int id) async {
+  /// Finds a [TvShowResponseModel] `/shows/(query)`.
+  Future<TvShowResponseModel> getTvShowsDetailsById(int id) async {
     final tvShowRequest = Uri.https(
       TvMazeApiEndpoints.baseUrl,
       TvMazeApiEndpoints.getTvShowDetailsByIdPath(id),
@@ -127,6 +127,6 @@ class TvMazeApiClient {
       tvShowResponse.body,
     ) as Map<String, dynamic>;
 
-    return TvShowModel.fromJson(tvShowJson);
+    return TvShowResponseModel.fromJson(tvShowJson);
   }
 }

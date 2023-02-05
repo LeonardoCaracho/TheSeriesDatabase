@@ -1,27 +1,31 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'episodes_model.dart';
+part of 'tv_show_response_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_EpisodesModel _$$_EpisodesModelFromJson(Map<String, dynamic> json) =>
-    _$_EpisodesModel(
+_$_TvShowResponseModel _$$_TvShowResponseModelFromJson(
+        Map<String, dynamic> json) =>
+    _$_TvShowResponseModel(
       id: json['id'] as int,
       name: json['name'] as String,
-      season: json['season'] as int,
-      number: json['number'] as int,
+      genres:
+          (json['genres'] as List<dynamic>).map((e) => e as String).toList(),
+      schedule:
+          ScheduleModel.fromJson(json['schedule'] as Map<String, dynamic>),
       image: ImageModel.fromJson(json['image'] as Map<String, dynamic>),
       summary: json['summary'] as String,
     );
 
-Map<String, dynamic> _$$_EpisodesModelToJson(_$_EpisodesModel instance) =>
+Map<String, dynamic> _$$_TvShowResponseModelToJson(
+        _$_TvShowResponseModel instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
-      'season': instance.season,
-      'number': instance.number,
+      'genres': instance.genres,
+      'schedule': instance.schedule,
       'image': instance.image,
       'summary': instance.summary,
     };

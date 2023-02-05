@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'episodes_model.dart';
+part of 'tv_show_response_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,47 +14,47 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-EpisodesModel _$EpisodesModelFromJson(Map<String, dynamic> json) {
-  return _EpisodesModel.fromJson(json);
+TvShowResponseModel _$TvShowResponseModelFromJson(Map<String, dynamic> json) {
+  return _TvShowResponseModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$EpisodesModel {
+mixin _$TvShowResponseModel {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  int get season => throw _privateConstructorUsedError;
-  int get number => throw _privateConstructorUsedError;
-  @JsonKey(name: 'image')
+  List<String> get genres => throw _privateConstructorUsedError;
+  ScheduleModel get schedule => throw _privateConstructorUsedError;
   ImageModel get image => throw _privateConstructorUsedError;
   String get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $EpisodesModelCopyWith<EpisodesModel> get copyWith =>
+  $TvShowResponseModelCopyWith<TvShowResponseModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EpisodesModelCopyWith<$Res> {
-  factory $EpisodesModelCopyWith(
-          EpisodesModel value, $Res Function(EpisodesModel) then) =
-      _$EpisodesModelCopyWithImpl<$Res, EpisodesModel>;
+abstract class $TvShowResponseModelCopyWith<$Res> {
+  factory $TvShowResponseModelCopyWith(
+          TvShowResponseModel value, $Res Function(TvShowResponseModel) then) =
+      _$TvShowResponseModelCopyWithImpl<$Res, TvShowResponseModel>;
   @useResult
   $Res call(
       {int id,
       String name,
-      int season,
-      int number,
-      @JsonKey(name: 'image') ImageModel image,
+      List<String> genres,
+      ScheduleModel schedule,
+      ImageModel image,
       String summary});
 
+  $ScheduleModelCopyWith<$Res> get schedule;
   $ImageModelCopyWith<$Res> get image;
 }
 
 /// @nodoc
-class _$EpisodesModelCopyWithImpl<$Res, $Val extends EpisodesModel>
-    implements $EpisodesModelCopyWith<$Res> {
-  _$EpisodesModelCopyWithImpl(this._value, this._then);
+class _$TvShowResponseModelCopyWithImpl<$Res, $Val extends TvShowResponseModel>
+    implements $TvShowResponseModelCopyWith<$Res> {
+  _$TvShowResponseModelCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -66,8 +66,8 @@ class _$EpisodesModelCopyWithImpl<$Res, $Val extends EpisodesModel>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? season = null,
-    Object? number = null,
+    Object? genres = null,
+    Object? schedule = null,
     Object? image = null,
     Object? summary = null,
   }) {
@@ -80,14 +80,14 @@ class _$EpisodesModelCopyWithImpl<$Res, $Val extends EpisodesModel>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      season: null == season
-          ? _value.season
-          : season // ignore: cast_nullable_to_non_nullable
-              as int,
-      number: null == number
-          ? _value.number
-          : number // ignore: cast_nullable_to_non_nullable
-              as int,
+      genres: null == genres
+          ? _value.genres
+          : genres // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      schedule: null == schedule
+          ? _value.schedule
+          : schedule // ignore: cast_nullable_to_non_nullable
+              as ScheduleModel,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -101,6 +101,14 @@ class _$EpisodesModelCopyWithImpl<$Res, $Val extends EpisodesModel>
 
   @override
   @pragma('vm:prefer-inline')
+  $ScheduleModelCopyWith<$Res> get schedule {
+    return $ScheduleModelCopyWith<$Res>(_value.schedule, (value) {
+      return _then(_value.copyWith(schedule: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $ImageModelCopyWith<$Res> get image {
     return $ImageModelCopyWith<$Res>(_value.image, (value) {
       return _then(_value.copyWith(image: value) as $Val);
@@ -109,31 +117,33 @@ class _$EpisodesModelCopyWithImpl<$Res, $Val extends EpisodesModel>
 }
 
 /// @nodoc
-abstract class _$$_EpisodesModelCopyWith<$Res>
-    implements $EpisodesModelCopyWith<$Res> {
-  factory _$$_EpisodesModelCopyWith(
-          _$_EpisodesModel value, $Res Function(_$_EpisodesModel) then) =
-      __$$_EpisodesModelCopyWithImpl<$Res>;
+abstract class _$$_TvShowResponseModelCopyWith<$Res>
+    implements $TvShowResponseModelCopyWith<$Res> {
+  factory _$$_TvShowResponseModelCopyWith(_$_TvShowResponseModel value,
+          $Res Function(_$_TvShowResponseModel) then) =
+      __$$_TvShowResponseModelCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {int id,
       String name,
-      int season,
-      int number,
-      @JsonKey(name: 'image') ImageModel image,
+      List<String> genres,
+      ScheduleModel schedule,
+      ImageModel image,
       String summary});
 
+  @override
+  $ScheduleModelCopyWith<$Res> get schedule;
   @override
   $ImageModelCopyWith<$Res> get image;
 }
 
 /// @nodoc
-class __$$_EpisodesModelCopyWithImpl<$Res>
-    extends _$EpisodesModelCopyWithImpl<$Res, _$_EpisodesModel>
-    implements _$$_EpisodesModelCopyWith<$Res> {
-  __$$_EpisodesModelCopyWithImpl(
-      _$_EpisodesModel _value, $Res Function(_$_EpisodesModel) _then)
+class __$$_TvShowResponseModelCopyWithImpl<$Res>
+    extends _$TvShowResponseModelCopyWithImpl<$Res, _$_TvShowResponseModel>
+    implements _$$_TvShowResponseModelCopyWith<$Res> {
+  __$$_TvShowResponseModelCopyWithImpl(_$_TvShowResponseModel _value,
+      $Res Function(_$_TvShowResponseModel) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -141,12 +151,12 @@ class __$$_EpisodesModelCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? name = null,
-    Object? season = null,
-    Object? number = null,
+    Object? genres = null,
+    Object? schedule = null,
     Object? image = null,
     Object? summary = null,
   }) {
-    return _then(_$_EpisodesModel(
+    return _then(_$_TvShowResponseModel(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -155,14 +165,14 @@ class __$$_EpisodesModelCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      season: null == season
-          ? _value.season
-          : season // ignore: cast_nullable_to_non_nullable
-              as int,
-      number: null == number
-          ? _value.number
-          : number // ignore: cast_nullable_to_non_nullable
-              as int,
+      genres: null == genres
+          ? _value._genres
+          : genres // ignore: cast_nullable_to_non_nullable
+              as List<String>,
+      schedule: null == schedule
+          ? _value.schedule
+          : schedule // ignore: cast_nullable_to_non_nullable
+              as ScheduleModel,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -177,96 +187,103 @@ class __$$_EpisodesModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_EpisodesModel implements _EpisodesModel {
-  _$_EpisodesModel(
+class _$_TvShowResponseModel implements _TvShowResponseModel {
+  _$_TvShowResponseModel(
       {required this.id,
       required this.name,
-      required this.season,
-      required this.number,
-      @JsonKey(name: 'image') required this.image,
-      required this.summary});
+      required final List<String> genres,
+      required this.schedule,
+      required this.image,
+      required this.summary})
+      : _genres = genres;
 
-  factory _$_EpisodesModel.fromJson(Map<String, dynamic> json) =>
-      _$$_EpisodesModelFromJson(json);
+  factory _$_TvShowResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$$_TvShowResponseModelFromJson(json);
 
   @override
   final int id;
   @override
   final String name;
+  final List<String> _genres;
   @override
-  final int season;
+  List<String> get genres {
+    if (_genres is EqualUnmodifiableListView) return _genres;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_genres);
+  }
+
   @override
-  final int number;
+  final ScheduleModel schedule;
   @override
-  @JsonKey(name: 'image')
   final ImageModel image;
   @override
   final String summary;
 
   @override
   String toString() {
-    return 'EpisodesModel(id: $id, name: $name, season: $season, number: $number, image: $image, summary: $summary)';
+    return 'TvShowResponseModel(id: $id, name: $name, genres: $genres, schedule: $schedule, image: $image, summary: $summary)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_EpisodesModel &&
+            other is _$_TvShowResponseModel &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.season, season) || other.season == season) &&
-            (identical(other.number, number) || other.number == number) &&
+            const DeepCollectionEquality().equals(other._genres, _genres) &&
+            (identical(other.schedule, schedule) ||
+                other.schedule == schedule) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.summary, summary) || other.summary == summary));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, season, number, image, summary);
+  int get hashCode => Object.hash(runtimeType, id, name,
+      const DeepCollectionEquality().hash(_genres), schedule, image, summary);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_EpisodesModelCopyWith<_$_EpisodesModel> get copyWith =>
-      __$$_EpisodesModelCopyWithImpl<_$_EpisodesModel>(this, _$identity);
+  _$$_TvShowResponseModelCopyWith<_$_TvShowResponseModel> get copyWith =>
+      __$$_TvShowResponseModelCopyWithImpl<_$_TvShowResponseModel>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_EpisodesModelToJson(
+    return _$$_TvShowResponseModelToJson(
       this,
     );
   }
 }
 
-abstract class _EpisodesModel implements EpisodesModel {
-  factory _EpisodesModel(
+abstract class _TvShowResponseModel implements TvShowResponseModel {
+  factory _TvShowResponseModel(
       {required final int id,
       required final String name,
-      required final int season,
-      required final int number,
-      @JsonKey(name: 'image') required final ImageModel image,
-      required final String summary}) = _$_EpisodesModel;
+      required final List<String> genres,
+      required final ScheduleModel schedule,
+      required final ImageModel image,
+      required final String summary}) = _$_TvShowResponseModel;
 
-  factory _EpisodesModel.fromJson(Map<String, dynamic> json) =
-      _$_EpisodesModel.fromJson;
+  factory _TvShowResponseModel.fromJson(Map<String, dynamic> json) =
+      _$_TvShowResponseModel.fromJson;
 
   @override
   int get id;
   @override
   String get name;
   @override
-  int get season;
+  List<String> get genres;
   @override
-  int get number;
+  ScheduleModel get schedule;
   @override
-  @JsonKey(name: 'image')
   ImageModel get image;
   @override
   String get summary;
   @override
   @JsonKey(ignore: true)
-  _$$_EpisodesModelCopyWith<_$_EpisodesModel> get copyWith =>
+  _$$_TvShowResponseModelCopyWith<_$_TvShowResponseModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
