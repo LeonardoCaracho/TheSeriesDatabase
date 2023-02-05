@@ -1,7 +1,7 @@
 /// TvShows Api endpoints
 class TvMazeApiEndpoints {
   /// TvShows Api base url
-  static const baseUrl = 'https://api.tvmaze.com';
+  static const baseUrl = 'api.tvmaze.com';
 
   /// get tv show details by show id url
   static String getTvShowDetailsByIdPath(int showId) => '/shows/$showId';

@@ -29,9 +29,13 @@ class TvMazeApiClient {
 
     final episodesJson = jsonDecode(
       episodesResponse.body,
-    ) as List<Map<String, dynamic>>;
+    ) as List<dynamic>;
 
-    return episodesJson.map(EpisodesModel.fromJson).toList();
+    return episodesJson
+        .map(
+          (e) => EpisodesModel.fromJson(e as Map<String, dynamic>),
+        )
+        .toList();
   }
 
   /// Find a [EpisodesModel] `/episodes/(query)`.
@@ -59,7 +63,9 @@ class TvMazeApiClient {
     final tvShowsRequest = Uri.https(
       TvMazeApiEndpoints.baseUrl,
       TvMazeApiEndpoints.getTvShowsPath,
-      {'page': page},
+      {
+        'page': page.toString(),
+      },
     );
 
     final tvShowsResponse = await _httpClient.get(tvShowsRequest);
@@ -70,9 +76,13 @@ class TvMazeApiClient {
 
     final tvShowsJson = jsonDecode(
       tvShowsResponse.body,
-    ) as List<Map<String, dynamic>>;
+    ) as List<dynamic>;
 
-    return tvShowsJson.map(TvShowModel.fromJson).toList();
+    return tvShowsJson
+        .map(
+          (s) => TvShowModel.fromJson(s as Map<String, dynamic>),
+        )
+        .toList();
   }
 
   /// Finds all [List<TvShowModel>] `/search/shows/(query)`.
@@ -91,9 +101,13 @@ class TvMazeApiClient {
 
     final tvShowsJson = jsonDecode(
       tvShowsResponse.body,
-    ) as List<Map<String, dynamic>>;
+    ) as List<dynamic>;
 
-    return tvShowsJson.map(TvShowModel.fromJson).toList();
+    return tvShowsJson
+        .map(
+          (s) => TvShowModel.fromJson(s as Map<String, dynamic>),
+        )
+        .toList();
   }
 
   /// Finds a [TvShowModel] `/shows/(query)`.

@@ -10,7 +10,7 @@ part 'tvshow_model.g.dart';
 class TvShowModel with _$TvShowModel {
   /// TvShowModel freezed factory
   factory TvShowModel({
-    required String id,
+    required int id,
     required String name,
     required List<String> genres,
     required ScheduleModel schedule,

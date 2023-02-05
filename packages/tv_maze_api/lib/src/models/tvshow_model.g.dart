@@ -8,7 +8,7 @@ part of 'tvshow_model.dart';
 
 _$_TvShowModel _$$_TvShowModelFromJson(Map<String, dynamic> json) =>
     _$_TvShowModel(
-      id: json['id'] as String,
+      id: json['id'] as int,
       name: json['name'] as String,
       genres:
           (json['genres'] as List<dynamic>).map((e) => e as String).toList(),

@@ -20,7 +20,7 @@ TvShowModel _$TvShowModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TvShowModel {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   List<String> get genres => throw _privateConstructorUsedError;
   ScheduleModel get schedule => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $TvShowModelCopyWith<$Res> {
       _$TvShowModelCopyWithImpl<$Res, TvShowModel>;
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
       List<String> genres,
       ScheduleModel schedule,
@@ -75,7 +75,7 @@ class _$TvShowModelCopyWithImpl<$Res, $Val extends TvShowModel>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -125,7 +125,7 @@ abstract class _$$_TvShowModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
       List<String> genres,
       ScheduleModel schedule,
@@ -160,7 +160,7 @@ class __$$_TvShowModelCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -201,7 +201,7 @@ class _$_TvShowModel implements _TvShowModel {
       _$$_TvShowModelFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   final List<String> _genres;
@@ -259,7 +259,7 @@ class _$_TvShowModel implements _TvShowModel {
 
 abstract class _TvShowModel implements TvShowModel {
   factory _TvShowModel(
-      {required final String id,
+      {required final int id,
       required final String name,
       required final List<String> genres,
       required final ScheduleModel schedule,
@@ -270,7 +270,7 @@ abstract class _TvShowModel implements TvShowModel {
       _$_TvShowModel.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
   @override
