@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'tvshow_model.dart';
+part of 'tv_show_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -20,11 +20,12 @@ TvShowModel _$TvShowModelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TvShowModel {
-  String get id => throw _privateConstructorUsedError;
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   List<String> get genres => throw _privateConstructorUsedError;
-  ScheduleModel get schedule => throw _privateConstructorUsedError;
-  ImageModel get image => throw _privateConstructorUsedError;
+  String? get exhibitionHour => throw _privateConstructorUsedError;
+  List<String>? get exhibitionDays => throw _privateConstructorUsedError;
+  String get imageUrl => throw _privateConstructorUsedError;
   String get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,15 +41,13 @@ abstract class $TvShowModelCopyWith<$Res> {
       _$TvShowModelCopyWithImpl<$Res, TvShowModel>;
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
       List<String> genres,
-      ScheduleModel schedule,
-      ImageModel image,
+      String? exhibitionHour,
+      List<String>? exhibitionDays,
+      String imageUrl,
       String summary});
-
-  $ScheduleModelCopyWith<$Res> get schedule;
-  $ImageModelCopyWith<$Res> get image;
 }
 
 /// @nodoc
@@ -67,15 +66,16 @@ class _$TvShowModelCopyWithImpl<$Res, $Val extends TvShowModel>
     Object? id = null,
     Object? name = null,
     Object? genres = null,
-    Object? schedule = null,
-    Object? image = null,
+    Object? exhibitionHour = freezed,
+    Object? exhibitionDays = freezed,
+    Object? imageUrl = null,
     Object? summary = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -84,35 +84,23 @@ class _$TvShowModelCopyWithImpl<$Res, $Val extends TvShowModel>
           ? _value.genres
           : genres // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      schedule: null == schedule
-          ? _value.schedule
-          : schedule // ignore: cast_nullable_to_non_nullable
-              as ScheduleModel,
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as ImageModel,
+      exhibitionHour: freezed == exhibitionHour
+          ? _value.exhibitionHour
+          : exhibitionHour // ignore: cast_nullable_to_non_nullable
+              as String?,
+      exhibitionDays: freezed == exhibitionDays
+          ? _value.exhibitionDays
+          : exhibitionDays // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ScheduleModelCopyWith<$Res> get schedule {
-    return $ScheduleModelCopyWith<$Res>(_value.schedule, (value) {
-      return _then(_value.copyWith(schedule: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ImageModelCopyWith<$Res> get image {
-    return $ImageModelCopyWith<$Res>(_value.image, (value) {
-      return _then(_value.copyWith(image: value) as $Val);
-    });
   }
 }
 
@@ -125,17 +113,13 @@ abstract class _$$_TvShowModelCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {int id,
       String name,
       List<String> genres,
-      ScheduleModel schedule,
-      ImageModel image,
+      String? exhibitionHour,
+      List<String>? exhibitionDays,
+      String imageUrl,
       String summary});
-
-  @override
-  $ScheduleModelCopyWith<$Res> get schedule;
-  @override
-  $ImageModelCopyWith<$Res> get image;
 }
 
 /// @nodoc
@@ -152,15 +136,16 @@ class __$$_TvShowModelCopyWithImpl<$Res>
     Object? id = null,
     Object? name = null,
     Object? genres = null,
-    Object? schedule = null,
-    Object? image = null,
+    Object? exhibitionHour = freezed,
+    Object? exhibitionDays = freezed,
+    Object? imageUrl = null,
     Object? summary = null,
   }) {
     return _then(_$_TvShowModel(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
-              as String,
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -169,14 +154,18 @@ class __$$_TvShowModelCopyWithImpl<$Res>
           ? _value._genres
           : genres // ignore: cast_nullable_to_non_nullable
               as List<String>,
-      schedule: null == schedule
-          ? _value.schedule
-          : schedule // ignore: cast_nullable_to_non_nullable
-              as ScheduleModel,
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
-              as ImageModel,
+      exhibitionHour: freezed == exhibitionHour
+          ? _value.exhibitionHour
+          : exhibitionHour // ignore: cast_nullable_to_non_nullable
+              as String?,
+      exhibitionDays: freezed == exhibitionDays
+          ? _value._exhibitionDays
+          : exhibitionDays // ignore: cast_nullable_to_non_nullable
+              as List<String>?,
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
@@ -192,16 +181,18 @@ class _$_TvShowModel implements _TvShowModel {
       {required this.id,
       required this.name,
       required final List<String> genres,
-      required this.schedule,
-      required this.image,
+      this.exhibitionHour,
+      final List<String>? exhibitionDays,
+      required this.imageUrl,
       required this.summary})
-      : _genres = genres;
+      : _genres = genres,
+        _exhibitionDays = exhibitionDays;
 
   factory _$_TvShowModel.fromJson(Map<String, dynamic> json) =>
       _$$_TvShowModelFromJson(json);
 
   @override
-  final String id;
+  final int id;
   @override
   final String name;
   final List<String> _genres;
@@ -213,15 +204,25 @@ class _$_TvShowModel implements _TvShowModel {
   }
 
   @override
-  final ScheduleModel schedule;
+  final String? exhibitionHour;
+  final List<String>? _exhibitionDays;
   @override
-  final ImageModel image;
+  List<String>? get exhibitionDays {
+    final value = _exhibitionDays;
+    if (value == null) return null;
+    if (_exhibitionDays is EqualUnmodifiableListView) return _exhibitionDays;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final String imageUrl;
   @override
   final String summary;
 
   @override
   String toString() {
-    return 'TvShowModel(id: $id, name: $name, genres: $genres, schedule: $schedule, image: $image, summary: $summary)';
+    return 'TvShowModel(id: $id, name: $name, genres: $genres, exhibitionHour: $exhibitionHour, exhibitionDays: $exhibitionDays, imageUrl: $imageUrl, summary: $summary)';
   }
 
   @override
@@ -232,16 +233,26 @@ class _$_TvShowModel implements _TvShowModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             const DeepCollectionEquality().equals(other._genres, _genres) &&
-            (identical(other.schedule, schedule) ||
-                other.schedule == schedule) &&
-            (identical(other.image, image) || other.image == image) &&
+            (identical(other.exhibitionHour, exhibitionHour) ||
+                other.exhibitionHour == exhibitionHour) &&
+            const DeepCollectionEquality()
+                .equals(other._exhibitionDays, _exhibitionDays) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
             (identical(other.summary, summary) || other.summary == summary));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name,
-      const DeepCollectionEquality().hash(_genres), schedule, image, summary);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      const DeepCollectionEquality().hash(_genres),
+      exhibitionHour,
+      const DeepCollectionEquality().hash(_exhibitionDays),
+      imageUrl,
+      summary);
 
   @JsonKey(ignore: true)
   @override
@@ -259,26 +270,29 @@ class _$_TvShowModel implements _TvShowModel {
 
 abstract class _TvShowModel implements TvShowModel {
   factory _TvShowModel(
-      {required final String id,
+      {required final int id,
       required final String name,
       required final List<String> genres,
-      required final ScheduleModel schedule,
-      required final ImageModel image,
+      final String? exhibitionHour,
+      final List<String>? exhibitionDays,
+      required final String imageUrl,
       required final String summary}) = _$_TvShowModel;
 
   factory _TvShowModel.fromJson(Map<String, dynamic> json) =
       _$_TvShowModel.fromJson;
 
   @override
-  String get id;
+  int get id;
   @override
   String get name;
   @override
   List<String> get genres;
   @override
-  ScheduleModel get schedule;
+  String? get exhibitionHour;
   @override
-  ImageModel get image;
+  List<String>? get exhibitionDays;
+  @override
+  String get imageUrl;
   @override
   String get summary;
   @override

@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'tvshow_model.dart';
+part of 'tv_show_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -8,13 +8,15 @@ part of 'tvshow_model.dart';
 
 _$_TvShowModel _$$_TvShowModelFromJson(Map<String, dynamic> json) =>
     _$_TvShowModel(
-      id: json['id'] as String,
+      id: json['id'] as int,
       name: json['name'] as String,
       genres:
           (json['genres'] as List<dynamic>).map((e) => e as String).toList(),
-      schedule:
-          ScheduleModel.fromJson(json['schedule'] as Map<String, dynamic>),
-      image: ImageModel.fromJson(json['image'] as Map<String, dynamic>),
+      exhibitionHour: json['exhibitionHour'] as String?,
+      exhibitionDays: (json['exhibitionDays'] as List<dynamic>?)
+          ?.map((e) => e as String)
+          .toList(),
+      imageUrl: json['imageUrl'] as String,
       summary: json['summary'] as String,
     );
 
@@ -23,7 +25,8 @@ Map<String, dynamic> _$$_TvShowModelToJson(_$_TvShowModel instance) =>
       'id': instance.id,
       'name': instance.name,
       'genres': instance.genres,
-      'schedule': instance.schedule,
-      'image': instance.image,
+      'exhibitionHour': instance.exhibitionHour,
+      'exhibitionDays': instance.exhibitionDays,
+      'imageUrl': instance.imageUrl,
       'summary': instance.summary,
     };
