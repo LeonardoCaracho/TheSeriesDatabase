@@ -13,7 +13,9 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i7;
 import 'package:auto_route/empty_router_widgets.dart' as _i2;
+import 'package:flutter/cupertino.dart' as _i9;
 import 'package:flutter/material.dart' as _i8;
+import 'package:tsdb_repository/tsdb_repository.dart' as _i10;
 
 import '../app/app.dart' as _i1;
 import '../episode_details/episode_details.dart' as _i5;
@@ -52,9 +54,13 @@ class AppRouter extends _i7.RootStackRouter {
       );
     },
     SeriesHomeRouter.name: (routeData) {
+      final args = routeData.argsAs<SeriesHomeRouterArgs>();
       return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i4.SeriesDetailsPage(),
+        child: _i4.SeriesDetailsPage(
+          key: args.key,
+          tvShowModel: args.tvShowModel,
+        ),
       );
     },
     EpisodeHomeRouter.name: (routeData) {
@@ -70,9 +76,13 @@ class AppRouter extends _i7.RootStackRouter {
       );
     },
     SeriesSearchRouter.name: (routeData) {
+      final args = routeData.argsAs<SeriesSearchRouterArgs>();
       return _i7.MaterialPageX<dynamic>(
         routeData: routeData,
-        child: const _i4.SeriesDetailsPage(),
+        child: _i4.SeriesDetailsPage(
+          key: args.key,
+          tvShowModel: args.tvShowModel,
+        ),
       );
     },
     EpisodeSearchRouter.name: (routeData) {
@@ -191,14 +201,36 @@ class HomeRoute extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.SeriesDetailsPage]
-class SeriesHomeRouter extends _i7.PageRouteInfo<void> {
-  const SeriesHomeRouter()
-      : super(
+class SeriesHomeRouter extends _i7.PageRouteInfo<SeriesHomeRouterArgs> {
+  SeriesHomeRouter({
+    _i9.Key? key,
+    required _i10.TvShowModel tvShowModel,
+  }) : super(
           SeriesHomeRouter.name,
           path: 'series-details',
+          args: SeriesHomeRouterArgs(
+            key: key,
+            tvShowModel: tvShowModel,
+          ),
         );
 
   static const String name = 'SeriesHomeRouter';
+}
+
+class SeriesHomeRouterArgs {
+  const SeriesHomeRouterArgs({
+    this.key,
+    required this.tvShowModel,
+  });
+
+  final _i9.Key? key;
+
+  final _i10.TvShowModel tvShowModel;
+
+  @override
+  String toString() {
+    return 'SeriesHomeRouterArgs{key: $key, tvShowModel: $tvShowModel}';
+  }
 }
 
 /// generated route for
@@ -227,14 +259,36 @@ class SearchRoute extends _i7.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.SeriesDetailsPage]
-class SeriesSearchRouter extends _i7.PageRouteInfo<void> {
-  const SeriesSearchRouter()
-      : super(
+class SeriesSearchRouter extends _i7.PageRouteInfo<SeriesSearchRouterArgs> {
+  SeriesSearchRouter({
+    _i9.Key? key,
+    required _i10.TvShowModel tvShowModel,
+  }) : super(
           SeriesSearchRouter.name,
           path: 'series-details',
+          args: SeriesSearchRouterArgs(
+            key: key,
+            tvShowModel: tvShowModel,
+          ),
         );
 
   static const String name = 'SeriesSearchRouter';
+}
+
+class SeriesSearchRouterArgs {
+  const SeriesSearchRouterArgs({
+    this.key,
+    required this.tvShowModel,
+  });
+
+  final _i9.Key? key;
+
+  final _i10.TvShowModel tvShowModel;
+
+  @override
+  String toString() {
+    return 'SeriesSearchRouterArgs{key: $key, tvShowModel: $tvShowModel}';
+  }
 }
 
 /// generated route for

@@ -77,7 +77,7 @@ class SeriesItemWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => context.router.push(
-        const SeriesHomeRouter(),
+        SeriesHomeRouter(tvShowModel: tvShow),
       ),
       child: Card(
         clipBehavior: Clip.antiAlias,
