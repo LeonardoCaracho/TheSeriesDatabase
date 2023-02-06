@@ -14,7 +14,7 @@ class EpisodesResponseModel with _$EpisodesResponseModel {
     required String name,
     required int season,
     required int number,
-    @JsonKey(name: 'image') required ImageModel image,
+    @JsonKey(name: 'image') required ImageModel? image,
     required String summary,
   }) = _EpisodesResponseModel;
 

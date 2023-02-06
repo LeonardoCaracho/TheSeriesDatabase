@@ -26,7 +26,7 @@ mixin _$EpisodesResponseModel {
   int get season => throw _privateConstructorUsedError;
   int get number => throw _privateConstructorUsedError;
   @JsonKey(name: 'image')
-  ImageModel get image => throw _privateConstructorUsedError;
+  ImageModel? get image => throw _privateConstructorUsedError;
   String get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,10 +46,10 @@ abstract class $EpisodesResponseModelCopyWith<$Res> {
       String name,
       int season,
       int number,
-      @JsonKey(name: 'image') ImageModel image,
+      @JsonKey(name: 'image') ImageModel? image,
       String summary});
 
-  $ImageModelCopyWith<$Res> get image;
+  $ImageModelCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ class _$EpisodesResponseModelCopyWithImpl<$Res,
     Object? name = null,
     Object? season = null,
     Object? number = null,
-    Object? image = null,
+    Object? image = freezed,
     Object? summary = null,
   }) {
     return _then(_value.copyWith(
@@ -90,10 +90,10 @@ class _$EpisodesResponseModelCopyWithImpl<$Res,
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as int,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as ImageModel,
+              as ImageModel?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
@@ -103,8 +103,12 @@ class _$EpisodesResponseModelCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $ImageModelCopyWith<$Res> get image {
-    return $ImageModelCopyWith<$Res>(_value.image, (value) {
+  $ImageModelCopyWith<$Res>? get image {
+    if (_value.image == null) {
+      return null;
+    }
+
+    return $ImageModelCopyWith<$Res>(_value.image!, (value) {
       return _then(_value.copyWith(image: value) as $Val);
     });
   }
@@ -123,11 +127,11 @@ abstract class _$$_EpisodesResponseModelCopyWith<$Res>
       String name,
       int season,
       int number,
-      @JsonKey(name: 'image') ImageModel image,
+      @JsonKey(name: 'image') ImageModel? image,
       String summary});
 
   @override
-  $ImageModelCopyWith<$Res> get image;
+  $ImageModelCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -145,7 +149,7 @@ class __$$_EpisodesResponseModelCopyWithImpl<$Res>
     Object? name = null,
     Object? season = null,
     Object? number = null,
-    Object? image = null,
+    Object? image = freezed,
     Object? summary = null,
   }) {
     return _then(_$_EpisodesResponseModel(
@@ -165,10 +169,10 @@ class __$$_EpisodesResponseModelCopyWithImpl<$Res>
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as int,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as ImageModel,
+              as ImageModel?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
@@ -201,7 +205,7 @@ class _$_EpisodesResponseModel implements _EpisodesResponseModel {
   final int number;
   @override
   @JsonKey(name: 'image')
-  final ImageModel image;
+  final ImageModel? image;
   @override
   final String summary;
 
@@ -249,7 +253,7 @@ abstract class _EpisodesResponseModel implements EpisodesResponseModel {
       required final String name,
       required final int season,
       required final int number,
-      @JsonKey(name: 'image') required final ImageModel image,
+      @JsonKey(name: 'image') required final ImageModel? image,
       required final String summary}) = _$_EpisodesResponseModel;
 
   factory _EpisodesResponseModel.fromJson(Map<String, dynamic> json) =
@@ -265,7 +269,7 @@ abstract class _EpisodesResponseModel implements EpisodesResponseModel {
   int get number;
   @override
   @JsonKey(name: 'image')
-  ImageModel get image;
+  ImageModel? get image;
   @override
   String get summary;
   @override

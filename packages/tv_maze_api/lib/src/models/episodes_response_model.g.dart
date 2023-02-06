@@ -13,7 +13,9 @@ _$_EpisodesResponseModel _$$_EpisodesResponseModelFromJson(
       name: json['name'] as String,
       season: json['season'] as int,
       number: json['number'] as int,
-      image: ImageModel.fromJson(json['image'] as Map<String, dynamic>),
+      image: json['image'] == null
+          ? null
+          : ImageModel.fromJson(json['image'] as Map<String, dynamic>),
       summary: json['summary'] as String,
     );
 
