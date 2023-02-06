@@ -201,14 +201,18 @@ class EpisodeCard extends StatelessWidget {
               image: NetworkImage(episode.imageUrl!),
             ),
           ),
-          child: Positioned(
-            child: Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Text('EP: ${episode.number}'),
+          child: Stack(
+            children: [
+              Positioned(
+                child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Text('EP: ${episode.number}'),
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
         ),
       ),

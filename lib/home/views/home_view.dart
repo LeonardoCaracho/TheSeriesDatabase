@@ -15,7 +15,7 @@ class HomeView extends StatefulWidget {
 }
 
 class _HomeViewState extends State<HomeView> {
-  final ScrollController _scrollController = ScrollController();
+  final ScrollController _scroll = ScrollController();
 
   @override
   void initState() {
@@ -23,9 +23,9 @@ class _HomeViewState extends State<HomeView> {
 
     context.read<HomeBloc>().add(HomeStarted());
 
-    _scrollController.addListener(
+    _scroll.addListener(
       () {
-        if (_scrollController.position.pixels == _scrollController.position.maxScrollExtent) {
+        if (_scroll.position.pixels == _scroll.position.maxScrollExtent) {
           context.read<HomeBloc>().add(HomeFetched());
         }
       },
@@ -44,7 +44,7 @@ class _HomeViewState extends State<HomeView> {
               builder: (context, state) {
                 if (state is HomeLoadSuccess) {
                   return GridView.builder(
-                    controller: _scrollController,
+                    controller: _scroll,
                     itemCount: state.tvShowsList.length,
                     itemBuilder: (context, index) => SeriesItemWidget(
                       tvShow: state.tvShowsList[index],
@@ -92,14 +92,18 @@ class SeriesItemWidget extends StatelessWidget {
               image: NetworkImage(tvShow.imageUrl),
             ),
           ),
-          child: Positioned(
-            child: Align(
-              alignment: FractionalOffset.bottomCenter,
-              child: Padding(
-                padding: const EdgeInsets.all(8),
-                child: Text(tvShow.name),
-              ),
-            ),
+          child: Stack(
+            children: [
+              Positioned(
+                child: Align(
+                  alignment: FractionalOffset.bottomCenter,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: Text(tvShow.name),
+                  ),
+                ),
+              )
+            ],
           ),
         ),
       ),
