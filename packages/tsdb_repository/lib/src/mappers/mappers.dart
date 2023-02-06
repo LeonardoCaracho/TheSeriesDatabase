@@ -22,5 +22,5 @@ EpisodeDetailsModel mapToEpisodeDetailsModel(
       season: e.season,
       number: e.number,
       summary: e.summary,
-      imageUrl: e.image.medium,
+      imageUrl: e.image?.medium,
     );

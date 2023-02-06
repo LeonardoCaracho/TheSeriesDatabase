@@ -189,7 +189,7 @@ class _$_EpisodesResponseModel implements _EpisodesResponseModel {
       required this.name,
       required this.season,
       required this.number,
-      @JsonKey(name: 'image') required this.image,
+      @JsonKey(name: 'image') this.image,
       required this.summary});
 
   factory _$_EpisodesResponseModel.fromJson(Map<String, dynamic> json) =>
@@ -253,7 +253,7 @@ abstract class _EpisodesResponseModel implements EpisodesResponseModel {
       required final String name,
       required final int season,
       required final int number,
-      @JsonKey(name: 'image') required final ImageModel? image,
+      @JsonKey(name: 'image') final ImageModel? image,
       required final String summary}) = _$_EpisodesResponseModel;
 
   factory _EpisodesResponseModel.fromJson(Map<String, dynamic> json) =
