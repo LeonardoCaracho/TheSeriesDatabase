@@ -1,44 +1,38 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:the_series_db/series_details/series_details.dart';
+import 'package:the_series_db/routes/router.gr.dart';
 import 'package:the_series_db/shared/shared.dart';
 import 'package:tsdb_repository/tsdb_repository.dart';
 
-class EpisodeCard extends StatelessWidget {
-  const EpisodeCard({
+class SeriesItemWidget extends StatelessWidget {
+  const SeriesItemWidget({
     super.key,
-    required this.episode,
+    required this.tvShow,
   });
 
-  final EpisodeDetailsModel episode;
+  final TvShowModel tvShow;
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
     return GestureDetector(
-      onTap: () => showModalBottomSheet<void>(
-        context: context,
-        isScrollControlled: true,
-        elevation: 10,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          ),
-        ),
-        builder: (BuildContext context) {
-          return EpisodeDetails(
-            episode: episode,
-          );
-        },
+      onTap: () => context.router.push(
+        SeriesHomeRouter(tvShowModel: tvShow),
       ),
       child: Card(
+        clipBehavior: Clip.antiAlias,
+        elevation: 3,
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(8)),
+        ),
         child: DecoratedBox(
           decoration: BoxDecoration(
             image: DecorationImage(
+              alignment: Alignment.topCenter,
               fit: BoxFit.cover,
               image: NetworkImage(
-                episode.imageUrl ?? AppConstants.placeholderSerie,
+                tvShow.imageUrl ?? AppConstants.placeholderSerie,
               ),
             ),
           ),
@@ -48,15 +42,16 @@ class EpisodeCard extends StatelessWidget {
                 child: Align(
                   alignment: FractionalOffset.bottomCenter,
                   child: Container(
-                    color: AppColors.black.withOpacity(.6),
+                    width: double.infinity,
+                    color: AppColors.black.withOpacity(.4),
                     padding: const EdgeInsets.all(8),
                     child: Text(
-                      'EP: ${episode.number}',
+                      tvShow.name,
                       style: theme.textTheme.labelSmall,
                     ),
                   ),
                 ),
-              ),
+              )
             ],
           ),
         ),

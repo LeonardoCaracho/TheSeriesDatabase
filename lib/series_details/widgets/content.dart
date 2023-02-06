@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:the_series_db/series_details/series_details.dart';
+import 'package:the_series_db/shared/shared.dart';
 import 'package:tsdb_repository/tsdb_repository.dart';
 
 class Content extends StatelessWidget {
@@ -42,6 +43,7 @@ class Content extends StatelessWidget {
             children: tvShowModel.genres
                 .map(
                   (genre) => Chip(
+                    backgroundColor: AppColors.primary,
                     label: Text(
                       genre,
                       style: Theme.of(context).textTheme.labelSmall,
@@ -54,6 +56,14 @@ class Content extends StatelessWidget {
             builder: (context, state) {
               if (state is SeasonEpisodesILoadSuccess) {
                 return SeasonsSessionsWidget(seasons: state.seasons);
+              }
+
+              if (state is SeasonEpisodesLoadInProgress) {
+                return const Center(
+                  child: CircularProgressIndicator(
+                    color: AppColors.primary,
+                  ),
+                );
               }
 
               return const SizedBox.shrink();

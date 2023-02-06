@@ -1,9 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_series_db/home/home.dart';
-import 'package:the_series_db/routes/router.gr.dart';
-import 'package:tsdb_repository/tsdb_repository.dart';
+import 'package:the_series_db/shared/shared.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({
@@ -20,9 +18,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   void initState() {
     super.initState();
-
     context.read<HomeBloc>().add(HomeStarted());
-
     _scroll.addListener(
       () {
         if (_scroll.position.pixels == _scroll.position.maxScrollExtent) {
@@ -34,11 +30,32 @@ class _HomeViewState extends State<HomeView> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+
     return SafeArea(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Home'),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'TheSeriesDataBase',
+                  style: theme.textTheme.headlineSmall,
+                ),
+                const Padding(
+                  padding: EdgeInsets.only(left: 2),
+                  child: Icon(
+                    Icons.movie_filter_sharp,
+                    size: 22,
+                  ),
+                ),
+              ],
+            ),
+          ),
           Expanded(
             child: BlocBuilder<HomeBloc, HomeState>(
               builder: (context, state) {
@@ -55,57 +72,19 @@ class _HomeViewState extends State<HomeView> {
                   );
                 }
 
+                if (state is HomeLoadInProgress) {
+                  return const Center(
+                    child: CircularProgressIndicator(
+                      color: AppColors.primary,
+                    ),
+                  );
+                }
+
                 return const SizedBox.shrink();
               },
             ),
           ),
         ],
-      ),
-    );
-  }
-}
-
-class SeriesItemWidget extends StatelessWidget {
-  const SeriesItemWidget({
-    super.key,
-    required this.tvShow,
-  });
-
-  final TvShowModel tvShow;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => context.router.push(
-        SeriesHomeRouter(tvShowModel: tvShow),
-      ),
-      child: Card(
-        clipBehavior: Clip.antiAlias,
-        elevation: 3,
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(15)),
-        ),
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: NetworkImage(tvShow.imageUrl ?? 'https://via.placeholder.com/350x200'),
-            ),
-          ),
-          child: Stack(
-            children: [
-              Positioned(
-                child: Align(
-                  alignment: FractionalOffset.bottomCenter,
-                  child: Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text(tvShow.name),
-                  ),
-                ),
-              )
-            ],
-          ),
-        ),
       ),
     );
   }

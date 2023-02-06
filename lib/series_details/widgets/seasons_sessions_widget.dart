@@ -37,6 +37,10 @@ class _SeasonsSessionsWidgetState extends State<SeasonsSessionsWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        const Divider(
+          color: Colors.black,
+          height: 40,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

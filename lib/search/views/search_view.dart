@@ -1,9 +1,7 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:the_series_db/routes/router.gr.dart';
 import 'package:the_series_db/search/search.dart';
-import 'package:tsdb_repository/tsdb_repository.dart';
+import 'package:the_series_db/shared/shared.dart';
 
 class SearchView extends StatelessWidget {
   const SearchView({
@@ -25,15 +23,17 @@ class SearchView extends StatelessWidget {
                       ),
                     );
               },
+              style: const TextStyle(color: AppColors.white),
               decoration: InputDecoration(
+                fillColor: AppColors.primary,
                 suffixIcon: const Icon(Icons.search),
                 hintText: 'Search',
+                hintStyle: const TextStyle(color: AppColors.primaryDark),
                 contentPadding: const EdgeInsets.symmetric(
                   horizontal: 30,
                   vertical: 20,
                 ),
                 border: OutlineInputBorder(
-                  borderSide: const BorderSide(width: 3.1, color: Colors.red),
                   borderRadius: BorderRadius.circular(30),
                 ),
               ),
@@ -50,43 +50,20 @@ class SearchView extends StatelessWidget {
                     );
                   }
 
+                  if (state is SearchLoadInProgress) {
+                    return const Center(
+                      child: CircularProgressIndicator(
+                        color: AppColors.primary,
+                      ),
+                    );
+                  }
+
                   return const SizedBox.shrink();
                 },
               ),
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class SearchResultTile extends StatelessWidget {
-  const SearchResultTile({
-    super.key,
-    required this.show,
-  });
-
-  final TvShowModel show;
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.only(top: 8),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          GestureDetector(
-            onTap: () => context.router.push(
-              SeriesSearchRouter(tvShowModel: show),
-            ),
-            child: ListTile(
-              leading: Image.network(show.imageUrl ?? 'https://via.placeholder.com/350x200'),
-              title: Text(show.name),
-              subtitle: const Text('This is a simple card in Flutter.'),
-            ),
-          ),
-        ],
       ),
     );
   }

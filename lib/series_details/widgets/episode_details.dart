@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
+import 'package:the_series_db/shared/constants/app_constants.dart';
+import 'package:the_series_db/shared/shared.dart';
 import 'package:tsdb_repository/tsdb_repository.dart';
 
 class EpisodeDetails extends StatelessWidget {
@@ -17,9 +19,31 @@ class EpisodeDetails extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(
-            width: MediaQuery.of(context).size.width,
-            child: Image.network(episode.imageUrl!, fit: BoxFit.contain),
+          Stack(
+            children: [
+              SizedBox(
+                width: MediaQuery.of(context).size.width,
+                child: Image.network(
+                  episode.imageUrl ?? AppConstants.placeholderSerie,
+                  fit: BoxFit.contain,
+                ),
+              ),
+              Positioned(
+                child: Align(
+                  alignment: Alignment.topRight,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8),
+                    child: IconButton(
+                      onPressed: () => Navigator.of(context).pop(),
+                      icon: const Icon(
+                        Icons.close,
+                        color: AppColors.white,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
           ),
           Padding(
             padding: const EdgeInsets.all(16),
@@ -41,40 +65,3 @@ class EpisodeDetails extends StatelessWidget {
     );
   }
 }
-
-final seasonMock = [
-  SeasonModel(
-    season: 4,
-    episodes: [
-      EpisodeDetailsModel(
-        id: 34,
-        name: 'Face Off',
-        number: 13,
-        season: 4,
-        summary: 'summary mock',
-        imageUrl: 'https://static.tvmaze.com/uploads/images/medium_landscape/405/1012681.jpg',
-      ),
-    ],
-  ),
-  SeasonModel(
-    season: 5,
-    episodes: [
-      EpisodeDetailsModel(
-        id: 56,
-        name: 'Granite State',
-        number: 15,
-        season: 5,
-        summary: 'summary mock',
-        imageUrl: 'https://static.tvmaze.com/uploads/images/medium_landscape/405/1012681.jpg',
-      ),
-      EpisodeDetailsModel(
-        id: 57,
-        name: 'Felina',
-        number: 16,
-        season: 5,
-        summary: 'summary mock',
-        imageUrl: 'https://static.tvmaze.com/uploads/images/medium_landscape/405/1012681.jpg',
-      ),
-    ],
-  ),
-];
