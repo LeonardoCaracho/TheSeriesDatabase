@@ -25,7 +25,7 @@ mixin _$TvShowResponseModel {
   List<String> get genres => throw _privateConstructorUsedError;
   ScheduleModel get schedule => throw _privateConstructorUsedError;
   ImageModel? get image => throw _privateConstructorUsedError;
-  String get summary => throw _privateConstructorUsedError;
+  String? get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +45,7 @@ abstract class $TvShowResponseModelCopyWith<$Res> {
       List<String> genres,
       ScheduleModel schedule,
       ImageModel? image,
-      String summary});
+      String? summary});
 
   $ScheduleModelCopyWith<$Res> get schedule;
   $ImageModelCopyWith<$Res>? get image;
@@ -69,7 +69,7 @@ class _$TvShowResponseModelCopyWithImpl<$Res, $Val extends TvShowResponseModel>
     Object? genres = null,
     Object? schedule = null,
     Object? image = freezed,
-    Object? summary = null,
+    Object? summary = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -92,10 +92,10 @@ class _$TvShowResponseModelCopyWithImpl<$Res, $Val extends TvShowResponseModel>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as ImageModel?,
-      summary: null == summary
+      summary: freezed == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 
@@ -134,7 +134,7 @@ abstract class _$$_TvShowResponseModelCopyWith<$Res>
       List<String> genres,
       ScheduleModel schedule,
       ImageModel? image,
-      String summary});
+      String? summary});
 
   @override
   $ScheduleModelCopyWith<$Res> get schedule;
@@ -158,7 +158,7 @@ class __$$_TvShowResponseModelCopyWithImpl<$Res>
     Object? genres = null,
     Object? schedule = null,
     Object? image = freezed,
-    Object? summary = null,
+    Object? summary = freezed,
   }) {
     return _then(_$_TvShowResponseModel(
       id: null == id
@@ -181,10 +181,10 @@ class __$$_TvShowResponseModelCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as ImageModel?,
-      summary: null == summary
+      summary: freezed == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -198,7 +198,7 @@ class _$_TvShowResponseModel implements _TvShowResponseModel {
       required final List<String> genres,
       required this.schedule,
       this.image,
-      required this.summary})
+      this.summary})
       : _genres = genres;
 
   factory _$_TvShowResponseModel.fromJson(Map<String, dynamic> json) =>
@@ -221,7 +221,7 @@ class _$_TvShowResponseModel implements _TvShowResponseModel {
   @override
   final ImageModel? image;
   @override
-  final String summary;
+  final String? summary;
 
   @override
   String toString() {
@@ -269,7 +269,7 @@ abstract class _TvShowResponseModel implements TvShowResponseModel {
       required final List<String> genres,
       required final ScheduleModel schedule,
       final ImageModel? image,
-      required final String summary}) = _$_TvShowResponseModel;
+      final String? summary}) = _$_TvShowResponseModel;
 
   factory _TvShowResponseModel.fromJson(Map<String, dynamic> json) =
       _$_TvShowResponseModel.fromJson;
@@ -285,7 +285,7 @@ abstract class _TvShowResponseModel implements TvShowResponseModel {
   @override
   ImageModel? get image;
   @override
-  String get summary;
+  String? get summary;
   @override
   @JsonKey(ignore: true)
   _$$_TvShowResponseModelCopyWith<_$_TvShowResponseModel> get copyWith =>

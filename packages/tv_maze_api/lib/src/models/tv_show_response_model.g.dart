@@ -18,7 +18,7 @@ _$_TvShowResponseModel _$$_TvShowResponseModelFromJson(
       image: json['image'] == null
           ? null
           : ImageModel.fromJson(json['image'] as Map<String, dynamic>),
-      summary: json['summary'] as String,
+      summary: json['summary'] as String?,
     );
 
 Map<String, dynamic> _$$_TvShowResponseModelToJson(

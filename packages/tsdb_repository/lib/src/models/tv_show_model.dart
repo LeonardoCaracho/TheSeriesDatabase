@@ -14,7 +14,7 @@ class TvShowModel with _$TvShowModel {
     String? exhibitionHour,
     List<String>? exhibitionDays,
     String? imageUrl,
-    required String summary,
+    String? summary,
   }) = _TvShowModel;
 
   /// TvShowModel fromJson model

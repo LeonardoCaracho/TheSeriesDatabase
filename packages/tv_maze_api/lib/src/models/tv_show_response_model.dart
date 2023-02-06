@@ -15,7 +15,7 @@ class TvShowResponseModel with _$TvShowResponseModel {
     required List<String> genres,
     required ScheduleModel schedule,
     ImageModel? image,
-    required String summary,
+    String? summary,
   }) = _TvShowResponseModel;
 
   /// TvShowResponseModel fromJson model

@@ -25,7 +25,7 @@ class SeriesDetailsView extends StatelessWidget {
               title: Text(tvShowModel.name),
               centerTitle: true,
               background: Image.network(
-                tvShowModel.imageUrl,
+                tvShowModel.imageUrl ?? 'https://via.placeholder.com/350x200',
                 fit: BoxFit.cover,
               ),
             ),

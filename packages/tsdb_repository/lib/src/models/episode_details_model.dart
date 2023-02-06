@@ -13,7 +13,7 @@ class EpisodeDetailsModel with _$EpisodeDetailsModel {
     required int season,
     required int number,
     String? imageUrl,
-    required String summary,
+    String? summary,
   }) = _EpisodeDetailsModel;
 
   /// EpisodeDetailsModel fromJson model

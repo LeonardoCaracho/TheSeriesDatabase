@@ -26,7 +26,7 @@ mixin _$TvShowModel {
   String? get exhibitionHour => throw _privateConstructorUsedError;
   List<String>? get exhibitionDays => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
-  String get summary => throw _privateConstructorUsedError;
+  String? get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $TvShowModelCopyWith<$Res> {
       String? exhibitionHour,
       List<String>? exhibitionDays,
       String? imageUrl,
-      String summary});
+      String? summary});
 }
 
 /// @nodoc
@@ -69,7 +69,7 @@ class _$TvShowModelCopyWithImpl<$Res, $Val extends TvShowModel>
     Object? exhibitionHour = freezed,
     Object? exhibitionDays = freezed,
     Object? imageUrl = freezed,
-    Object? summary = null,
+    Object? summary = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -96,10 +96,10 @@ class _$TvShowModelCopyWithImpl<$Res, $Val extends TvShowModel>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      summary: null == summary
+      summary: freezed == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -119,7 +119,7 @@ abstract class _$$_TvShowModelCopyWith<$Res>
       String? exhibitionHour,
       List<String>? exhibitionDays,
       String? imageUrl,
-      String summary});
+      String? summary});
 }
 
 /// @nodoc
@@ -139,7 +139,7 @@ class __$$_TvShowModelCopyWithImpl<$Res>
     Object? exhibitionHour = freezed,
     Object? exhibitionDays = freezed,
     Object? imageUrl = freezed,
-    Object? summary = null,
+    Object? summary = freezed,
   }) {
     return _then(_$_TvShowModel(
       id: null == id
@@ -166,10 +166,10 @@ class __$$_TvShowModelCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      summary: null == summary
+      summary: freezed == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -184,7 +184,7 @@ class _$_TvShowModel implements _TvShowModel {
       this.exhibitionHour,
       final List<String>? exhibitionDays,
       this.imageUrl,
-      required this.summary})
+      this.summary})
       : _genres = genres,
         _exhibitionDays = exhibitionDays;
 
@@ -218,7 +218,7 @@ class _$_TvShowModel implements _TvShowModel {
   @override
   final String? imageUrl;
   @override
-  final String summary;
+  final String? summary;
 
   @override
   String toString() {
@@ -276,7 +276,7 @@ abstract class _TvShowModel implements TvShowModel {
       final String? exhibitionHour,
       final List<String>? exhibitionDays,
       final String? imageUrl,
-      required final String summary}) = _$_TvShowModel;
+      final String? summary}) = _$_TvShowModel;
 
   factory _TvShowModel.fromJson(Map<String, dynamic> json) =
       _$_TvShowModel.fromJson;
@@ -294,7 +294,7 @@ abstract class _TvShowModel implements TvShowModel {
   @override
   String? get imageUrl;
   @override
-  String get summary;
+  String? get summary;
   @override
   @JsonKey(ignore: true)
   _$$_TvShowModelCopyWith<_$_TvShowModel> get copyWith =>

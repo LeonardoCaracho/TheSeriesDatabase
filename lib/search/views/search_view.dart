@@ -81,7 +81,7 @@ class SearchResultTile extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           ListTile(
-            leading: Image.network(show.imageUrl),
+            leading: Image.network(show.imageUrl ?? 'https://via.placeholder.com/350x200'),
             title: Text(show.name),
             subtitle: const Text('This is a simple card in Flutter.'),
           ),

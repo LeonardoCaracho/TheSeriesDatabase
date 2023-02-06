@@ -14,7 +14,7 @@ _$_EpisodeDetailsModel _$$_EpisodeDetailsModelFromJson(
       season: json['season'] as int,
       number: json['number'] as int,
       imageUrl: json['imageUrl'] as String?,
-      summary: json['summary'] as String,
+      summary: json['summary'] as String?,
     );
 
 Map<String, dynamic> _$$_EpisodeDetailsModelToJson(

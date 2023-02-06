@@ -27,7 +27,7 @@ mixin _$EpisodesResponseModel {
   int get number => throw _privateConstructorUsedError;
   @JsonKey(name: 'image')
   ImageModel? get image => throw _privateConstructorUsedError;
-  String get summary => throw _privateConstructorUsedError;
+  String? get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $EpisodesResponseModelCopyWith<$Res> {
       int season,
       int number,
       @JsonKey(name: 'image') ImageModel? image,
-      String summary});
+      String? summary});
 
   $ImageModelCopyWith<$Res>? get image;
 }
@@ -71,7 +71,7 @@ class _$EpisodesResponseModelCopyWithImpl<$Res,
     Object? season = null,
     Object? number = null,
     Object? image = freezed,
-    Object? summary = null,
+    Object? summary = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -94,10 +94,10 @@ class _$EpisodesResponseModelCopyWithImpl<$Res,
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as ImageModel?,
-      summary: null == summary
+      summary: freezed == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 
@@ -128,7 +128,7 @@ abstract class _$$_EpisodesResponseModelCopyWith<$Res>
       int season,
       int number,
       @JsonKey(name: 'image') ImageModel? image,
-      String summary});
+      String? summary});
 
   @override
   $ImageModelCopyWith<$Res>? get image;
@@ -150,7 +150,7 @@ class __$$_EpisodesResponseModelCopyWithImpl<$Res>
     Object? season = null,
     Object? number = null,
     Object? image = freezed,
-    Object? summary = null,
+    Object? summary = freezed,
   }) {
     return _then(_$_EpisodesResponseModel(
       id: null == id
@@ -173,10 +173,10 @@ class __$$_EpisodesResponseModelCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as ImageModel?,
-      summary: null == summary
+      summary: freezed == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -190,7 +190,7 @@ class _$_EpisodesResponseModel implements _EpisodesResponseModel {
       required this.season,
       required this.number,
       @JsonKey(name: 'image') this.image,
-      required this.summary});
+      this.summary});
 
   factory _$_EpisodesResponseModel.fromJson(Map<String, dynamic> json) =>
       _$$_EpisodesResponseModelFromJson(json);
@@ -207,7 +207,7 @@ class _$_EpisodesResponseModel implements _EpisodesResponseModel {
   @JsonKey(name: 'image')
   final ImageModel? image;
   @override
-  final String summary;
+  final String? summary;
 
   @override
   String toString() {
@@ -254,7 +254,7 @@ abstract class _EpisodesResponseModel implements EpisodesResponseModel {
       required final int season,
       required final int number,
       @JsonKey(name: 'image') final ImageModel? image,
-      required final String summary}) = _$_EpisodesResponseModel;
+      final String? summary}) = _$_EpisodesResponseModel;
 
   factory _EpisodesResponseModel.fromJson(Map<String, dynamic> json) =
       _$_EpisodesResponseModel.fromJson;
@@ -271,7 +271,7 @@ abstract class _EpisodesResponseModel implements EpisodesResponseModel {
   @JsonKey(name: 'image')
   ImageModel? get image;
   @override
-  String get summary;
+  String? get summary;
   @override
   @JsonKey(ignore: true)
   _$$_EpisodesResponseModelCopyWith<_$_EpisodesResponseModel> get copyWith =>

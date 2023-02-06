@@ -89,7 +89,7 @@ class SeriesItemWidget extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: NetworkImage(tvShow.imageUrl),
+              image: NetworkImage(tvShow.imageUrl ?? 'https://via.placeholder.com/350x200'),
             ),
           ),
           child: Stack(

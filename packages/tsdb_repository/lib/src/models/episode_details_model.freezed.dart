@@ -25,7 +25,7 @@ mixin _$EpisodeDetailsModel {
   int get season => throw _privateConstructorUsedError;
   int get number => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
-  String get summary => throw _privateConstructorUsedError;
+  String? get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +45,7 @@ abstract class $EpisodeDetailsModelCopyWith<$Res> {
       int season,
       int number,
       String? imageUrl,
-      String summary});
+      String? summary});
 }
 
 /// @nodoc
@@ -66,7 +66,7 @@ class _$EpisodeDetailsModelCopyWithImpl<$Res, $Val extends EpisodeDetailsModel>
     Object? season = null,
     Object? number = null,
     Object? imageUrl = freezed,
-    Object? summary = null,
+    Object? summary = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -89,10 +89,10 @@ class _$EpisodeDetailsModelCopyWithImpl<$Res, $Val extends EpisodeDetailsModel>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      summary: null == summary
+      summary: freezed == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ) as $Val);
   }
 }
@@ -111,7 +111,7 @@ abstract class _$$_EpisodeDetailsModelCopyWith<$Res>
       int season,
       int number,
       String? imageUrl,
-      String summary});
+      String? summary});
 }
 
 /// @nodoc
@@ -130,7 +130,7 @@ class __$$_EpisodeDetailsModelCopyWithImpl<$Res>
     Object? season = null,
     Object? number = null,
     Object? imageUrl = freezed,
-    Object? summary = null,
+    Object? summary = freezed,
   }) {
     return _then(_$_EpisodeDetailsModel(
       id: null == id
@@ -153,10 +153,10 @@ class __$$_EpisodeDetailsModelCopyWithImpl<$Res>
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
-      summary: null == summary
+      summary: freezed == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -170,7 +170,7 @@ class _$_EpisodeDetailsModel implements _EpisodeDetailsModel {
       required this.season,
       required this.number,
       this.imageUrl,
-      required this.summary});
+      this.summary});
 
   factory _$_EpisodeDetailsModel.fromJson(Map<String, dynamic> json) =>
       _$$_EpisodeDetailsModelFromJson(json);
@@ -186,7 +186,7 @@ class _$_EpisodeDetailsModel implements _EpisodeDetailsModel {
   @override
   final String? imageUrl;
   @override
-  final String summary;
+  final String? summary;
 
   @override
   String toString() {
@@ -234,7 +234,7 @@ abstract class _EpisodeDetailsModel implements EpisodeDetailsModel {
       required final int season,
       required final int number,
       final String? imageUrl,
-      required final String summary}) = _$_EpisodeDetailsModel;
+      final String? summary}) = _$_EpisodeDetailsModel;
 
   factory _EpisodeDetailsModel.fromJson(Map<String, dynamic> json) =
       _$_EpisodeDetailsModel.fromJson;
@@ -250,7 +250,7 @@ abstract class _EpisodeDetailsModel implements EpisodeDetailsModel {
   @override
   String? get imageUrl;
   @override
-  String get summary;
+  String? get summary;
   @override
   @JsonKey(ignore: true)
   _$$_EpisodeDetailsModelCopyWith<_$_EpisodeDetailsModel> get copyWith =>

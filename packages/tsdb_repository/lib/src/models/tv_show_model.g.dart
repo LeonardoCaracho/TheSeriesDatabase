@@ -17,7 +17,7 @@ _$_TvShowModel _$$_TvShowModelFromJson(Map<String, dynamic> json) =>
           ?.map((e) => e as String)
           .toList(),
       imageUrl: json['imageUrl'] as String?,
-      summary: json['summary'] as String,
+      summary: json['summary'] as String?,
     );
 
 Map<String, dynamic> _$$_TvShowModelToJson(_$_TvShowModel instance) =>
