@@ -24,7 +24,7 @@ mixin _$TvShowResponseModel {
   String get name => throw _privateConstructorUsedError;
   List<String> get genres => throw _privateConstructorUsedError;
   ScheduleModel get schedule => throw _privateConstructorUsedError;
-  ImageModel get image => throw _privateConstructorUsedError;
+  ImageModel? get image => throw _privateConstructorUsedError;
   String get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,11 +44,11 @@ abstract class $TvShowResponseModelCopyWith<$Res> {
       String name,
       List<String> genres,
       ScheduleModel schedule,
-      ImageModel image,
+      ImageModel? image,
       String summary});
 
   $ScheduleModelCopyWith<$Res> get schedule;
-  $ImageModelCopyWith<$Res> get image;
+  $ImageModelCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$TvShowResponseModelCopyWithImpl<$Res, $Val extends TvShowResponseModel>
     Object? name = null,
     Object? genres = null,
     Object? schedule = null,
-    Object? image = null,
+    Object? image = freezed,
     Object? summary = null,
   }) {
     return _then(_value.copyWith(
@@ -88,10 +88,10 @@ class _$TvShowResponseModelCopyWithImpl<$Res, $Val extends TvShowResponseModel>
           ? _value.schedule
           : schedule // ignore: cast_nullable_to_non_nullable
               as ScheduleModel,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as ImageModel,
+              as ImageModel?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
@@ -109,8 +109,12 @@ class _$TvShowResponseModelCopyWithImpl<$Res, $Val extends TvShowResponseModel>
 
   @override
   @pragma('vm:prefer-inline')
-  $ImageModelCopyWith<$Res> get image {
-    return $ImageModelCopyWith<$Res>(_value.image, (value) {
+  $ImageModelCopyWith<$Res>? get image {
+    if (_value.image == null) {
+      return null;
+    }
+
+    return $ImageModelCopyWith<$Res>(_value.image!, (value) {
       return _then(_value.copyWith(image: value) as $Val);
     });
   }
@@ -129,13 +133,13 @@ abstract class _$$_TvShowResponseModelCopyWith<$Res>
       String name,
       List<String> genres,
       ScheduleModel schedule,
-      ImageModel image,
+      ImageModel? image,
       String summary});
 
   @override
   $ScheduleModelCopyWith<$Res> get schedule;
   @override
-  $ImageModelCopyWith<$Res> get image;
+  $ImageModelCopyWith<$Res>? get image;
 }
 
 /// @nodoc
@@ -153,7 +157,7 @@ class __$$_TvShowResponseModelCopyWithImpl<$Res>
     Object? name = null,
     Object? genres = null,
     Object? schedule = null,
-    Object? image = null,
+    Object? image = freezed,
     Object? summary = null,
   }) {
     return _then(_$_TvShowResponseModel(
@@ -173,10 +177,10 @@ class __$$_TvShowResponseModelCopyWithImpl<$Res>
           ? _value.schedule
           : schedule // ignore: cast_nullable_to_non_nullable
               as ScheduleModel,
-      image: null == image
+      image: freezed == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
-              as ImageModel,
+              as ImageModel?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
@@ -193,7 +197,7 @@ class _$_TvShowResponseModel implements _TvShowResponseModel {
       required this.name,
       required final List<String> genres,
       required this.schedule,
-      required this.image,
+      this.image,
       required this.summary})
       : _genres = genres;
 
@@ -215,7 +219,7 @@ class _$_TvShowResponseModel implements _TvShowResponseModel {
   @override
   final ScheduleModel schedule;
   @override
-  final ImageModel image;
+  final ImageModel? image;
   @override
   final String summary;
 
@@ -264,7 +268,7 @@ abstract class _TvShowResponseModel implements TvShowResponseModel {
       required final String name,
       required final List<String> genres,
       required final ScheduleModel schedule,
-      required final ImageModel image,
+      final ImageModel? image,
       required final String summary}) = _$_TvShowResponseModel;
 
   factory _TvShowResponseModel.fromJson(Map<String, dynamic> json) =
@@ -279,7 +283,7 @@ abstract class _TvShowResponseModel implements TvShowResponseModel {
   @override
   ScheduleModel get schedule;
   @override
-  ImageModel get image;
+  ImageModel? get image;
   @override
   String get summary;
   @override

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:the_series_db/series_details/series_details.dart';
 import 'package:tsdb_repository/tsdb_repository.dart';
@@ -49,7 +50,15 @@ class Content extends StatelessWidget {
                 )
                 .toList(),
           ),
-          // SeasonsSessionsWidget(seasons: []),
+          BlocBuilder<SeasonEpisodesCubit, SeasonEpisodesState>(
+            builder: (context, state) {
+              if (state is SeasonEpisodesILoadSuccess) {
+                return SeasonsSessionsWidget(seasons: state.seasons);
+              }
+
+              return const SizedBox.shrink();
+            },
+          ),
         ],
       ),
     );

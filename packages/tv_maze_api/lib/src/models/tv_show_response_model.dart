@@ -14,7 +14,7 @@ class TvShowResponseModel with _$TvShowResponseModel {
     required String name,
     required List<String> genres,
     required ScheduleModel schedule,
-    required ImageModel image,
+    ImageModel? image,
     required String summary,
   }) = _TvShowResponseModel;
 

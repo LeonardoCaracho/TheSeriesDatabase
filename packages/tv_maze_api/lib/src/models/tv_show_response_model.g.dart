@@ -15,7 +15,9 @@ _$_TvShowResponseModel _$$_TvShowResponseModelFromJson(
           (json['genres'] as List<dynamic>).map((e) => e as String).toList(),
       schedule:
           ScheduleModel.fromJson(json['schedule'] as Map<String, dynamic>),
-      image: ImageModel.fromJson(json['image'] as Map<String, dynamic>),
+      image: json['image'] == null
+          ? null
+          : ImageModel.fromJson(json['image'] as Map<String, dynamic>),
       summary: json['summary'] as String,
     );
 
