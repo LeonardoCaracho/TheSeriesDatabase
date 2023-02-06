@@ -213,14 +213,14 @@ void main() {
       test('returns Tv Shows on valid response', () async {
         final response = MockResponse();
         when(() => response.statusCode).thenReturn(200);
-        when(() => response.body).thenReturn(tvShowsJson);
+        when(() => response.body).thenReturn(tvShowSearchJson);
         when(() => httpClient.get(any())).thenAnswer((_) async => response);
 
         final actual = await tvMazeApiClient.getTvShowsBySearch(query);
 
         expect(
           actual,
-          isA<List<TvShowResponseModel>>(),
+          isA<List<TvShowSearchResponseModel>>(),
         );
       });
     });

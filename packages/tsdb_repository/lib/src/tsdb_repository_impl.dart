@@ -55,7 +55,7 @@ class TsdbRepositoryImpl implements TsdbRepository {
   Future<List<TvShowModel>> getTvShowsBySearch(String query) async {
     try {
       final tvShowsResponse = await apiClient.getTvShowsBySearch(query);
-      return tvShowsResponse.map(mapToTvShowModel).toList();
+      return tvShowsResponse.map((s) => mapToTvShowModel(s.show)).toList();
     } catch (e) {
       throw GetTvshowsBySearchFailure();
     }

@@ -13,3 +13,19 @@ final tvShowsResponse = [
     summary: 'summary',
   ),
 ];
+
+final tvShowsSearcnResponse = [
+  TvShowSearchResponseModel(
+    show: TvShowResponseModel(
+      id: 1,
+      name: 'Breaking bad',
+      genres: ['action'],
+      schedule: ScheduleModel(
+        time: '10:00 PM',
+        days: ['Monday'],
+      ),
+      image: ImageModel(medium: 'https://image.url'),
+      summary: 'summary',
+    ),
+  ),
+];

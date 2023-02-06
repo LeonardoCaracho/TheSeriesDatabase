@@ -1,4 +1,3 @@
-import 'package:tsdb_repository/src/models/tv_show_model.dart';
 import 'package:tsdb_repository/tsdb_repository.dart';
 
 /// {@template tsdb_repository}

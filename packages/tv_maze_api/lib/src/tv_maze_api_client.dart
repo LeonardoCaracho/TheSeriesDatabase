@@ -85,8 +85,8 @@ class TvMazeApiClient {
         .toList();
   }
 
-  /// Finds all [List<TvShowResponseModel>] `/search/shows/(query)`.
-  Future<List<TvShowResponseModel>> getTvShowsBySearch(String search) async {
+  /// Finds all [List<TvShowSearchResponseModel>] `/search/shows/(query)`.
+  Future<List<TvShowSearchResponseModel>> getTvShowsBySearch(String search) async {
     final tvShowsRequest = Uri.https(
       TvMazeApiEndpoints.baseUrl,
       TvMazeApiEndpoints.getTvShowsBySearchPath,
@@ -105,7 +105,9 @@ class TvMazeApiClient {
 
     return tvShowsJson
         .map(
-          (s) => TvShowResponseModel.fromJson(s as Map<String, dynamic>),
+          (s) => TvShowSearchResponseModel.fromJson(
+            s as Map<String, dynamic>,
+          ),
         )
         .toList();
   }

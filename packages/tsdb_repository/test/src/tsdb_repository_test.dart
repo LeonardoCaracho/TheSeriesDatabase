@@ -40,7 +40,7 @@ void main() {
         ];
         when(
           () => apiClient.getTvShowsBySearch(query),
-        ).thenAnswer((_) async => tvShowsResponse);
+        ).thenAnswer((_) async => tvShowsSearcnResponse);
 
         final actual = await tsdbRepository.getTvShowsBySearch(query);
 

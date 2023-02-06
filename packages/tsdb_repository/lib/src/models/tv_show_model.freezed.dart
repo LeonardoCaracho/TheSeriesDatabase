@@ -176,7 +176,7 @@ class __$$_TvShowModelCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_TvShowModel extends _TvShowModel {
+class _$_TvShowModel implements _TvShowModel {
   _$_TvShowModel(
       {required this.id,
       required this.name,
@@ -186,8 +186,7 @@ class _$_TvShowModel extends _TvShowModel {
       required this.imageUrl,
       required this.summary})
       : _genres = genres,
-        _exhibitionDays = exhibitionDays,
-        super._();
+        _exhibitionDays = exhibitionDays;
 
   factory _$_TvShowModel.fromJson(Map<String, dynamic> json) =>
       _$$_TvShowModelFromJson(json);
@@ -221,6 +220,40 @@ class _$_TvShowModel extends _TvShowModel {
   @override
   final String summary;
 
+  @override
+  String toString() {
+    return 'TvShowModel(id: $id, name: $name, genres: $genres, exhibitionHour: $exhibitionHour, exhibitionDays: $exhibitionDays, imageUrl: $imageUrl, summary: $summary)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_TvShowModel &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            const DeepCollectionEquality().equals(other._genres, _genres) &&
+            (identical(other.exhibitionHour, exhibitionHour) ||
+                other.exhibitionHour == exhibitionHour) &&
+            const DeepCollectionEquality()
+                .equals(other._exhibitionDays, _exhibitionDays) &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl) &&
+            (identical(other.summary, summary) || other.summary == summary));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      const DeepCollectionEquality().hash(_genres),
+      exhibitionHour,
+      const DeepCollectionEquality().hash(_exhibitionDays),
+      imageUrl,
+      summary);
+
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
@@ -235,7 +268,7 @@ class _$_TvShowModel extends _TvShowModel {
   }
 }
 
-abstract class _TvShowModel extends TvShowModel {
+abstract class _TvShowModel implements TvShowModel {
   factory _TvShowModel(
       {required final int id,
       required final String name,
@@ -244,7 +277,6 @@ abstract class _TvShowModel extends TvShowModel {
       final List<String>? exhibitionDays,
       required final String imageUrl,
       required final String summary}) = _$_TvShowModel;
-  _TvShowModel._() : super._();
 
   factory _TvShowModel.fromJson(Map<String, dynamic> json) =
       _$_TvShowModel.fromJson;
