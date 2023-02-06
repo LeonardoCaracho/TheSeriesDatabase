@@ -16,7 +16,7 @@ _$_TvShowModel _$$_TvShowModelFromJson(Map<String, dynamic> json) =>
       exhibitionDays: (json['exhibitionDays'] as List<dynamic>?)
           ?.map((e) => e as String)
           .toList(),
-      imageUrl: json['imageUrl'] as String,
+      imageUrl: json['imageUrl'] as String?,
       summary: json['summary'] as String,
     );
 

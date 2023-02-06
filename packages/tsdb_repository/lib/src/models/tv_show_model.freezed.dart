@@ -25,7 +25,7 @@ mixin _$TvShowModel {
   List<String> get genres => throw _privateConstructorUsedError;
   String? get exhibitionHour => throw _privateConstructorUsedError;
   List<String>? get exhibitionDays => throw _privateConstructorUsedError;
-  String get imageUrl => throw _privateConstructorUsedError;
+  String? get imageUrl => throw _privateConstructorUsedError;
   String get summary => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $TvShowModelCopyWith<$Res> {
       List<String> genres,
       String? exhibitionHour,
       List<String>? exhibitionDays,
-      String imageUrl,
+      String? imageUrl,
       String summary});
 }
 
@@ -68,7 +68,7 @@ class _$TvShowModelCopyWithImpl<$Res, $Val extends TvShowModel>
     Object? genres = null,
     Object? exhibitionHour = freezed,
     Object? exhibitionDays = freezed,
-    Object? imageUrl = null,
+    Object? imageUrl = freezed,
     Object? summary = null,
   }) {
     return _then(_value.copyWith(
@@ -92,10 +92,10 @@ class _$TvShowModelCopyWithImpl<$Res, $Val extends TvShowModel>
           ? _value.exhibitionDays
           : exhibitionDays // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      imageUrl: null == imageUrl
+      imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
@@ -118,7 +118,7 @@ abstract class _$$_TvShowModelCopyWith<$Res>
       List<String> genres,
       String? exhibitionHour,
       List<String>? exhibitionDays,
-      String imageUrl,
+      String? imageUrl,
       String summary});
 }
 
@@ -138,7 +138,7 @@ class __$$_TvShowModelCopyWithImpl<$Res>
     Object? genres = null,
     Object? exhibitionHour = freezed,
     Object? exhibitionDays = freezed,
-    Object? imageUrl = null,
+    Object? imageUrl = freezed,
     Object? summary = null,
   }) {
     return _then(_$_TvShowModel(
@@ -162,10 +162,10 @@ class __$$_TvShowModelCopyWithImpl<$Res>
           ? _value._exhibitionDays
           : exhibitionDays // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      imageUrl: null == imageUrl
+      imageUrl: freezed == imageUrl
           ? _value.imageUrl
           : imageUrl // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       summary: null == summary
           ? _value.summary
           : summary // ignore: cast_nullable_to_non_nullable
@@ -183,7 +183,7 @@ class _$_TvShowModel implements _TvShowModel {
       required final List<String> genres,
       this.exhibitionHour,
       final List<String>? exhibitionDays,
-      required this.imageUrl,
+      this.imageUrl,
       required this.summary})
       : _genres = genres,
         _exhibitionDays = exhibitionDays;
@@ -216,7 +216,7 @@ class _$_TvShowModel implements _TvShowModel {
   }
 
   @override
-  final String imageUrl;
+  final String? imageUrl;
   @override
   final String summary;
 
@@ -275,7 +275,7 @@ abstract class _TvShowModel implements TvShowModel {
       required final List<String> genres,
       final String? exhibitionHour,
       final List<String>? exhibitionDays,
-      required final String imageUrl,
+      final String? imageUrl,
       required final String summary}) = _$_TvShowModel;
 
   factory _TvShowModel.fromJson(Map<String, dynamic> json) =
@@ -292,7 +292,7 @@ abstract class _TvShowModel implements TvShowModel {
   @override
   List<String>? get exhibitionDays;
   @override
-  String get imageUrl;
+  String? get imageUrl;
   @override
   String get summary;
   @override

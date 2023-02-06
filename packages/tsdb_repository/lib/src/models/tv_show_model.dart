@@ -13,7 +13,7 @@ class TvShowModel with _$TvShowModel {
     required List<String> genres,
     String? exhibitionHour,
     List<String>? exhibitionDays,
-    required String imageUrl,
+    String? imageUrl,
     required String summary,
   }) = _TvShowModel;
 

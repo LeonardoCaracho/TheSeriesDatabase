@@ -6,7 +6,7 @@ TvShowModel mapToTvShowModel(TvShowResponseModel s) => TvShowModel(
       id: s.id,
       name: s.name,
       genres: s.genres,
-      imageUrl: s.image.medium,
+      imageUrl: s.image?.medium,
       summary: s.summary,
       exhibitionDays: s.schedule.days,
       exhibitionHour: s.schedule.time,
