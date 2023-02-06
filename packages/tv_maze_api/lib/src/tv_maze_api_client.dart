@@ -101,7 +101,7 @@ class TvMazeApiClient {
 
     final tvShowsJson = jsonDecode(
       tvShowsResponse.body,
-    ) as List<dynamic>;
+    ) as List;
 
     return tvShowsJson
         .map(

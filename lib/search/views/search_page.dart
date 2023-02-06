@@ -1,25 +1,18 @@
-import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:the_series_db/routes/router.gr.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:the_series_db/search/search.dart';
+import 'package:tsdb_repository/tsdb_repository.dart';
 
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text('Search'),
-          ElevatedButton(
-            onPressed: () => context.router.push(
-              const SeriesSearchRouter(),
-            ),
-            child: const Text('go ahead'),
-          ),
-        ],
+    return BlocProvider<SearchBloc>(
+      create: (context) => SearchBloc(
+        tsdbRepository: context.read<TsdbRepository>(),
       ),
+      child: const SearchView(),
     );
   }
 }
