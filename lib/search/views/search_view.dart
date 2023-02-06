@@ -1,5 +1,7 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:the_series_db/routes/router.gr.dart';
 import 'package:the_series_db/search/search.dart';
 import 'package:tsdb_repository/tsdb_repository.dart';
 
@@ -52,12 +54,6 @@ class SearchView extends StatelessWidget {
                 },
               ),
             )
-            // ElevatedButton(
-            //   onPressed: () => context.router.push(
-            //     const SeriesSearchRouter(),
-            //   ),
-            //   child: const Text('go ahead'),
-            // ),
           ],
         ),
       ),
@@ -80,10 +76,15 @@ class SearchResultTile extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
-          ListTile(
-            leading: Image.network(show.imageUrl ?? 'https://via.placeholder.com/350x200'),
-            title: Text(show.name),
-            subtitle: const Text('This is a simple card in Flutter.'),
+          GestureDetector(
+            onTap: () => context.router.push(
+              SeriesSearchRouter(tvShowModel: show),
+            ),
+            child: ListTile(
+              leading: Image.network(show.imageUrl ?? 'https://via.placeholder.com/350x200'),
+              title: Text(show.name),
+              subtitle: const Text('This is a simple card in Flutter.'),
+            ),
           ),
         ],
       ),

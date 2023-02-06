@@ -35,7 +35,7 @@ class Content extends StatelessWidget {
             padding: const EdgeInsets.symmetric(
               vertical: 16,
             ),
-            child: HtmlWidget(tvShowModel.summary),
+            child: HtmlWidget(tvShowModel.summary ?? ''),
           ),
           Wrap(
             spacing: 5,

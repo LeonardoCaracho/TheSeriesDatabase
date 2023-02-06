@@ -36,7 +36,7 @@ class EpisodeCard extends StatelessWidget {
           decoration: BoxDecoration(
             image: DecorationImage(
               fit: BoxFit.cover,
-              image: NetworkImage(episode.imageUrl!),
+              image: NetworkImage(episode.imageUrl ?? 'https://via.placeholder.com/350x200'),
             ),
           ),
           child: Stack(
