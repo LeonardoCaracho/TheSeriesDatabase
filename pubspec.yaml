@@ -4,20 +4,28 @@ version: 1.0.0+1
 publish_to: none
 
 environment:
-  sdk: ">=2.19.0 <3.0.0"
+  sdk: ">=2.18.0 <3.0.0"
   flutter: 3.7.0
 
 dependencies:
+  auto_route: ^5.0.4
   bloc: ^8.1.0
+
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.1
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
+  tsdb_repository:
+    path: packages/tsdb_repository
+  tv_maze_api:
+    path: packages/tv_maze_api
 
 dev_dependencies:
+  auto_route_generator: ^5.0.3
   bloc_test: ^9.1.0
+  build_runner: ^2.1.2
   flutter_test:
     sdk: flutter
   mocktail: ^0.3.0

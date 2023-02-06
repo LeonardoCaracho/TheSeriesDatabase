@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:the_series_db/counter/counter.dart';
 import 'package:the_series_db/l10n/l10n.dart';
+import 'package:the_series_db/routes/router.gr.dart';
+
+final appRouter = AppRouter();
 
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerDelegate: appRouter.delegate(),
+      routeInformationParser: appRouter.defaultRouteParser(),
       theme: ThemeData(
         appBarTheme: const AppBarTheme(color: Color(0xFF13B9FF)),
         colorScheme: ColorScheme.fromSwatch(
@@ -16,7 +20,6 @@ class App extends StatelessWidget {
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const CounterPage(),
     );
   }
 }
