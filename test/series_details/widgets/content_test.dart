@@ -8,7 +8,8 @@ import 'package:the_series_db/series_details/series_details.dart';
 
 import '../../helpers/helpers.dart';
 
-class _MockSeasonEpisodesCubit extends MockCubit<SeasonEpisodesState> implements SeasonEpisodesCubit {}
+class _MockSeasonEpisodesCubit extends MockCubit<SeasonEpisodesState>
+    implements SeasonEpisodesCubit {}
 
 void main() {
   group('Content', () {
@@ -34,7 +35,9 @@ void main() {
       });
     });
 
-    testWidgets('should show CircularProgressIndicator if SeasonEpisodesLoadInProgress', (tester) async {
+    testWidgets(
+        'should show CircularProgressIndicator if SeasonEpisodesLoadInProgress',
+        (tester) async {
       await mockNetworkImages(() async {
         when(() => seasonEpisodesCubit.state).thenAnswer(
           (invocation) => SeasonEpisodesLoadInProgress(),
@@ -50,7 +53,9 @@ void main() {
       });
     });
 
-    testWidgets('should show SeasonsSessionsWidget if SeasonEpisodesLoadSuccess', (tester) async {
+    testWidgets(
+        'should show SeasonsSessionsWidget if SeasonEpisodesLoadSuccess',
+        (tester) async {
       await mockNetworkImages(() async {
         when(() => seasonEpisodesCubit.state).thenAnswer(
           (invocation) => SeasonEpisodesLoadSuccess(
@@ -68,7 +73,9 @@ void main() {
       });
     });
 
-    testWidgets('should not show SeasonsSessionsWidget if SeasonEpisodesLoadFailure', (tester) async {
+    testWidgets(
+        'should not show SeasonsSessionsWidget if SeasonEpisodesLoadFailure',
+        (tester) async {
       await mockNetworkImages(() async {
         when(() => seasonEpisodesCubit.state).thenAnswer(
           (invocation) => SeasonEpisodesLoadFailure(),

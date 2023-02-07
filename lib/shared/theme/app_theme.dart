@@ -83,7 +83,8 @@ class AppTheme {
     );
   }
 
-  BottomNavigationBarThemeData get _bottomNavigationBarThemeData => const BottomNavigationBarThemeData(
+  BottomNavigationBarThemeData get _bottomNavigationBarThemeData =>
+      const BottomNavigationBarThemeData(
         backgroundColor: AppColors.primary,
         unselectedItemColor: AppColors.primaryLight,
         selectedItemColor: AppColors.primaryDark,

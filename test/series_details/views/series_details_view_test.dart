@@ -8,7 +8,8 @@ import 'package:the_series_db/series_details/series_details.dart';
 
 import '../../helpers/helpers.dart';
 
-class _MockSeasonEpisodesCubit extends MockCubit<SeasonEpisodesState> implements SeasonEpisodesCubit {}
+class _MockSeasonEpisodesCubit extends MockCubit<SeasonEpisodesState>
+    implements SeasonEpisodesCubit {}
 
 class FakeHomeEvent extends Fake implements HomeEvent {}
 

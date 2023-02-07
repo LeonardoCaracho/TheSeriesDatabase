@@ -8,7 +8,8 @@ import 'package:the_series_db/home/home.dart';
 
 import '../../helpers/helpers.dart';
 
-class _MockHomeBloc extends MockBloc<HomeEvent, HomeState> implements HomeBloc {}
+class _MockHomeBloc extends MockBloc<HomeEvent, HomeState> implements HomeBloc {
+}
 
 class FakeHomeEvent extends Fake implements HomeEvent {}
 
@@ -35,7 +36,9 @@ void main() {
         expect(find.text('TheSeriesDataBase'), findsOneWidget);
       });
 
-      testWidgets('should renders circular progress indicador when HomeLoadInProgress', (
+      testWidgets(
+          'should renders circular progress indicador when HomeLoadInProgress',
+          (
         tester,
       ) async {
         await mockNetworkImages(() async {

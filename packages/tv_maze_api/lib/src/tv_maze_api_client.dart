@@ -86,7 +86,8 @@ class TvMazeApiClient {
   }
 
   /// Finds all [List<TvShowSearchResponseModel>] `/search/shows/(query)`.
-  Future<List<TvShowSearchResponseModel>> getTvShowsBySearch(String search) async {
+  Future<List<TvShowSearchResponseModel>> getTvShowsBySearch(
+      String search) async {
     final tvShowsRequest = Uri.https(
       TvMazeApiEndpoints.baseUrl,
       TvMazeApiEndpoints.getTvShowsBySearchPath,

@@ -9,7 +9,8 @@ import 'package:the_series_db/search/search.dart';
 
 import '../../helpers/helpers.dart';
 
-class _MockSearchBloc extends MockBloc<SearchEvent, SearchState> implements SearchBloc {}
+class _MockSearchBloc extends MockBloc<SearchEvent, SearchState>
+    implements SearchBloc {}
 
 class FakeHomeEvent extends Fake implements HomeEvent {}
 
@@ -36,7 +37,9 @@ void main() {
         expect(find.text('Search'), findsOneWidget);
       });
 
-      testWidgets('should renders circular progress indicador when SearchLoadInProgress', (
+      testWidgets(
+          'should renders circular progress indicador when SearchLoadInProgress',
+          (
         tester,
       ) async {
         await mockNetworkImages(() async {
@@ -95,7 +98,8 @@ void main() {
     });
 
     group('add', () {
-      testWidgets('should add SearchFetched when search is submitted', (tester) async {
+      testWidgets('should add SearchFetched when search is submitted',
+          (tester) async {
         await tester.pumpApp(
           BlocProvider.value(
             value: searchBloc,

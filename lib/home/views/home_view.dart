@@ -67,7 +67,8 @@ class _HomeViewState extends State<HomeView> {
                     itemBuilder: (context, index) => SeriesItemWidget(
                       tvShow: state.tvShowsList[index],
                     ),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                     ),
                   );
