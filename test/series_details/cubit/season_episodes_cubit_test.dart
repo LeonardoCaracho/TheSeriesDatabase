@@ -26,7 +26,8 @@ void main() {
         blocTest<SeasonEpisodesCubit, SeasonEpisodesState>(
           'should emit [SeasonEpisodesLoadInProgress, SeasonEpisodesLoadSuccess] when success',
           build: () {
-            when(() => repository.getTvShowSeasonsAndEpisodes(idShow)).thenAnswer(
+            when(() => repository.getTvShowSeasonsAndEpisodes(idShow))
+                .thenAnswer(
               (_) async => seasonEpisodesMock,
             );
 
