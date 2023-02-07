@@ -5,6 +5,7 @@ import '../../helpers/helpers.dart';
 
 void main() {
   group('SeasonEpisodesState', () {
+    final empty = <Object?>[];
     test('supports value comparisons', () {
       expect(SeasonEpisodesState(), SeasonEpisodesState());
     });
@@ -12,14 +13,14 @@ void main() {
     test('SeasonEpisodesInitial', () {
       expect(
         SeasonEpisodesInitial().props,
-        [],
+        empty,
       );
     });
 
     test('SeasonEpisodesLoadInProgress', () {
       expect(
         SeasonEpisodesLoadInProgress().props,
-        [],
+        empty,
       );
     });
 
@@ -37,7 +38,7 @@ void main() {
     test('SeasonEpisodesLoadFailure', () {
       expect(
         SeasonEpisodesLoadFailure().props,
-        [],
+        empty,
       );
     });
   });

@@ -15,6 +15,7 @@ class Content extends StatelessWidget {
 
   String exhibitionInfo() {
     if (tvShowModel.exhibitionDays!.isNotEmpty) {
+      // ignore: lines_longer_than_80_chars
       return '${tvShowModel.exhibitionDays!.join(', ')} - ${tvShowModel.exhibitionHour}';
     }
 

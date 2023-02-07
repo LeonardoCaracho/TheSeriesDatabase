@@ -5,6 +5,7 @@ import '../../helpers/mocks/tv_show_mock.dart';
 
 void main() {
   group('HomeState', () {
+    final empty = <Object?>[];
     test('supports value comparisons', () {
       expect(HomeState(), HomeState());
     });
@@ -12,14 +13,14 @@ void main() {
     test('HomeInitial', () {
       expect(
         HomeInitial().props,
-        [],
+        empty,
       );
     });
 
     test('HomeLoadInProgress', () {
       expect(
         HomeLoadInProgress().props,
-        [],
+        empty,
       );
     });
 
@@ -27,7 +28,6 @@ void main() {
       expect(
         HomeLoadSuccess(
           tvShowsList: [tvShowModelMock],
-          currentPage: 1,
         ).props,
         [
           [tvShowModelMock],
@@ -39,7 +39,7 @@ void main() {
     test('HomeLoadFailure', () {
       expect(
         HomeLoadFailure().props,
-        [],
+        empty,
       );
     });
   });

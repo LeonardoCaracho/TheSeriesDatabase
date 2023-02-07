@@ -1,8 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:the_series_db/search/search.dart';
 
-import '../../helpers/mocks/tv_show_mock.dart';
-
 void main() {
   group('SearchEvent', () {
     test('supports value comparisons', () {
@@ -19,7 +17,7 @@ void main() {
     test('SearchCleaned', () {
       expect(
         SearchCleaned().props,
-        [],
+        <Object?>[],
       );
     });
   });

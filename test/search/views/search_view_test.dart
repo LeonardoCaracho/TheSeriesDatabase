@@ -1,3 +1,5 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -9,8 +11,7 @@ import 'package:the_series_db/search/search.dart';
 
 import '../../helpers/helpers.dart';
 
-class _MockSearchBloc extends MockBloc<SearchEvent, SearchState>
-    implements SearchBloc {}
+class _MockSearchBloc extends MockBloc<SearchEvent, SearchState> implements SearchBloc {}
 
 class FakeHomeEvent extends Fake implements HomeEvent {}
 
@@ -38,25 +39,26 @@ void main() {
       });
 
       testWidgets(
-          'should renders circular progress indicador when SearchLoadInProgress',
-          (
-        tester,
-      ) async {
-        await mockNetworkImages(() async {
-          when(() => searchBloc.state).thenAnswer(
-            (invocation) => SearchLoadInProgress(),
-          );
+        'should renders circular progress indicador when SearchLoadInProgress',
+        (
+          tester,
+        ) async {
+          await mockNetworkImages(() async {
+            when(() => searchBloc.state).thenAnswer(
+              (invocation) => SearchLoadInProgress(),
+            );
 
-          await tester.pumpApp(
-            BlocProvider.value(
-              value: searchBloc,
-              child: const SearchView(),
-            ),
-          );
+            await tester.pumpApp(
+              BlocProvider.value(
+                value: searchBloc,
+                child: const SearchView(),
+              ),
+            );
 
-          expect(find.byType(CircularProgressIndicator), findsOneWidget);
-        });
-      });
+            expect(find.byType(CircularProgressIndicator), findsOneWidget);
+          });
+        },
+      );
 
       testWidgets('should renders ListView when SearchLoadSuccess', (
         tester,
@@ -98,8 +100,7 @@ void main() {
     });
 
     group('add', () {
-      testWidgets('should add SearchFetched when search is submitted',
-          (tester) async {
+      testWidgets('should add SearchFetched when search is submitted', (tester) async {
         await tester.pumpApp(
           BlocProvider.value(
             value: searchBloc,

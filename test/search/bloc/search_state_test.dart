@@ -4,6 +4,7 @@ import 'package:the_series_db/search/search.dart';
 import '../../helpers/mocks/tv_show_mock.dart';
 
 void main() {
+  final empty = <Object?>[];
   group('SearchState', () {
     test('supports value comparisons', () {
       expect(SearchState(), SearchState());
@@ -12,14 +13,14 @@ void main() {
     test('HomeInitial', () {
       expect(
         SearchInitial().props,
-        [],
+        empty,
       );
     });
 
     test('SearchLoadInProgress', () {
       expect(
         SearchLoadInProgress().props,
-        [],
+        empty,
       );
     });
 
@@ -37,7 +38,7 @@ void main() {
     test('SearchLoadFailure', () {
       expect(
         SearchLoadFailure().props,
-        [],
+        empty,
       );
     });
   });
