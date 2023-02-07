@@ -8,8 +8,8 @@ import 'package:the_series_db/home/home.dart';
 
 import '../../helpers/helpers.dart';
 
-class _MockHomeBloc extends MockBloc<HomeEvent, HomeState> implements HomeBloc {
-}
+class _MockHomeBloc extends MockBloc<HomeEvent, HomeState>
+    implements HomeBloc {}
 
 class FakeHomeEvent extends Fake implements HomeEvent {}
 
