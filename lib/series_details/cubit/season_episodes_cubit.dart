@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:tsdb_repository/tsdb_repository.dart';
 
@@ -19,7 +20,7 @@ class SeasonEpisodesCubit extends Cubit<SeasonEpisodesState> {
         tvShowId,
       );
 
-      emit(SeasonEpisodesILoadSuccess(seasons: seasonsResponse));
+      emit(SeasonEpisodesLoadSuccess(seasons: seasonsResponse));
     } catch (e) {
       emit(SeasonEpisodesLoadFailure());
     }

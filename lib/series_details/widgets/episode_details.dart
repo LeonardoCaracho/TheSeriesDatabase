@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
-import 'package:the_series_db/shared/constants/app_constants.dart';
 import 'package:the_series_db/shared/shared.dart';
 import 'package:tsdb_repository/tsdb_repository.dart';
 

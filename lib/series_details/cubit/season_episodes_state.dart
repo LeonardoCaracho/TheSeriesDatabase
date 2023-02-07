@@ -1,18 +1,24 @@
 part of 'season_episodes_cubit.dart';
 
 @immutable
-abstract class SeasonEpisodesState {}
+class SeasonEpisodesState extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
 
 class SeasonEpisodesInitial extends SeasonEpisodesState {}
 
 class SeasonEpisodesLoadInProgress extends SeasonEpisodesState {}
 
-class SeasonEpisodesILoadSuccess extends SeasonEpisodesState {
-  SeasonEpisodesILoadSuccess({
+class SeasonEpisodesLoadSuccess extends SeasonEpisodesState {
+  SeasonEpisodesLoadSuccess({
     required this.seasons,
   });
 
   final List<SeasonModel> seasons;
+
+  @override
+  List<Object?> get props => [seasons];
 }
 
 class SeasonEpisodesLoadFailure extends SeasonEpisodesState {}

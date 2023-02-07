@@ -54,7 +54,7 @@ class Content extends StatelessWidget {
           ),
           BlocBuilder<SeasonEpisodesCubit, SeasonEpisodesState>(
             builder: (context, state) {
-              if (state is SeasonEpisodesILoadSuccess) {
+              if (state is SeasonEpisodesLoadSuccess) {
                 return SeasonsSessionsWidget(seasons: state.seasons);
               }
 
