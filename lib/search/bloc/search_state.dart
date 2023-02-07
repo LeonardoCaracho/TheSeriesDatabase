@@ -1,7 +1,10 @@
 part of 'search_bloc.dart';
 
 @immutable
-abstract class SearchState {}
+class SearchState extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
 
 class SearchInitial extends SearchState {}
 
@@ -13,6 +16,9 @@ class SearchLoadSuccess extends SearchState {
   });
 
   final List<TvShowModel> tvShowsList;
+
+  @override
+  List<Object?> get props => [tvShowsList];
 }
 
 class SearchLoadFailure extends SearchState {}

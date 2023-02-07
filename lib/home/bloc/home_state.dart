@@ -1,7 +1,10 @@
 part of 'home_bloc.dart';
 
 @immutable
-abstract class HomeState {}
+class HomeState extends Equatable {
+  @override
+  List<Object?> get props => [];
+}
 
 class HomeInitial extends HomeState {}
 
@@ -15,6 +18,9 @@ class HomeLoadSuccess extends HomeState {
 
   final List<TvShowModel> tvShowsList;
   final int currentPage;
+
+  @override
+  List<Object?> get props => [tvShowsList, currentPage];
 }
 
 class HomeLoadFailure extends HomeState {}

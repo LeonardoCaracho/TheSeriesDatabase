@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:mocktail/mocktail.dart';
+import 'package:mockingjay/mockingjay.dart';
 import 'package:the_series_db/l10n/l10n.dart';
 import 'package:tsdb_repository/tsdb_repository.dart';
 
@@ -9,16 +10,26 @@ class MockTsdbRepository extends Mock implements TsdbRepository {}
 
 extension PumpApp on WidgetTester {
   Future<void> pumpApp(
-    Widget widget, {
+    Widget widgetUnderTest, {
     TsdbRepository? tsdbRepository,
+    MockNavigator? navigator,
   }) {
     return pumpWidget(
-      RepositoryProvider(
-        create: (context) => tsdbRepository ?? MockTsdbRepository(),
+      RepositoryProvider.value(
+        value: tsdbRepository ?? MockTsdbRepository(),
         child: MaterialApp(
-          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          title: 'TSDB',
+          localizationsDelegates: const [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+          ],
           supportedLocales: AppLocalizations.supportedLocales,
-          home: widget,
+          home: navigator == null
+              ? Scaffold(body: widgetUnderTest)
+              : MockNavigatorProvider(
+                  navigator: navigator,
+                  child: Scaffold(body: widgetUnderTest),
+                ),
         ),
       ),
     );

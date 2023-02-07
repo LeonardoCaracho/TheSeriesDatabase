@@ -61,6 +61,7 @@ class _HomeViewState extends State<HomeView> {
               builder: (context, state) {
                 if (state is HomeLoadSuccess) {
                   return GridView.builder(
+                    key: const Key('homeViewGridView'),
                     controller: _scroll,
                     itemCount: state.tvShowsList.length,
                     itemBuilder: (context, index) => SeriesItemWidget(

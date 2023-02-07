@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
 import 'package:tsdb_repository/tsdb_repository.dart';
 
@@ -37,8 +38,6 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
     try {
       if (previousState is HomeLoadSuccess) {
-        // emit(HomeLoadInProgress());
-
         final nextPage = previousState.currentPage + 1;
         final tvShowsResponse = await repository.getTvShows(nextPage);
 
